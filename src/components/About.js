@@ -1,5 +1,5 @@
 import dwuPic from "../assets/images/dwu-san-diego.jpg";
-import issue1 from "../assets/images/known-issues-1.png";
+// import issue1 from "../assets/images/known-issues-1.png";
 
 const AboutPage = () => {
   return (
@@ -11,11 +11,11 @@ const AboutPage = () => {
       />
       <div className="text-justify mx-8">
         <div className="mt-8 mb-8">Welcome - my name is David.</div>
-        <div className="mt-8 mb-8">
+        <div className="mt-8 mb-10">
           On this site you can find reviews of places I've eaten at, mostly from
           2022 onward, when this site was created.
         </div>
-        <div className="mt-8 mb-10">
+        {/* <div className="mt-8 mb-10">
           <div className="border rounded mb-2 border-orange-400"></div>
           <div className="mb-2 font-bold">
             Some map markers may appear to be off if a business has moved
@@ -27,7 +27,7 @@ const AboutPage = () => {
             className="mx-auto w-11/12 rounded-lg"
             alt="Known issue with map markers"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

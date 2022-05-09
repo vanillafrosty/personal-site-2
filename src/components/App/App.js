@@ -15,11 +15,7 @@ const App = () => {
   }, [location.pathname]);
 
   return (
-    <div
-      className={`font-sans text-black bg-slate-50 ${
-        page === "/about" ? "pb-10" : ""
-      }`}
-    >
+    <div className={`font-sans text-black ${page === "/about" ? "pb-10" : ""}`}>
       <div
         className={`h-17 flex sticky top-0 justify-between p-4 bg-red-50 drop-shadow-md ${
           page === "/" ? "hidden" : ""
