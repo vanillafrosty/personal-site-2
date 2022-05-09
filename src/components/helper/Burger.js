@@ -25,12 +25,8 @@ const Burger = ({ className }) => {
             burgerDown ? "burger-down" : ""
           } ${burgerDown === false ? "burger-down burger-up" : ""}`}
         >
-          <div className="hover:bg-slate-900 hover:text-white px-4 py-2 border-b border-slate-700">
-            <NavAbout />
-          </div>
-          <div className="hover:bg-slate-900 hover:text-white px-4 py-2">
-            <NavTravel />
-          </div>
+          <NavAbout className="block hover:bg-slate-900 hover:text-white px-4 py-2 border-b border-slate-700" />
+          <NavTravel className="block hover:bg-slate-900 hover:text-white px-4 py-2" />
         </div>
       </div>
     </>
