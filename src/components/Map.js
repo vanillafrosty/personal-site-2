@@ -16,7 +16,7 @@ const Map = ({ onMarkerClick }) => {
 
   return (
     <MapContainer
-      className="z-10 h-full"
+      className="z-10 h-screen"
       center={[32.76301228860241, -117.13063799019834]}
       zoom={12}
       scrollWheelZoom={false}

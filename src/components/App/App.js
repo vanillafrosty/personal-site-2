@@ -15,11 +15,7 @@ const App = () => {
   }, [location.pathname]);
 
   return (
-    <div
-      className={`font-sans h-screen text-black ${
-        page === "/" ? "overflow-hidden" : ""
-      }`}
-    >
+    <div className="font-sans text-black bg-slate-50">
       <div
         className={`h-17 flex sticky top-0 justify-between p-4 bg-red-50 drop-shadow-md ${
           page === "/" ? "hidden" : ""

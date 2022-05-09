@@ -11,7 +11,7 @@ const TravelsPage = () => {
   const { width } = useWindowDimensions();
 
   return (
-    <div className="map-container">
+    <div className="overflow-hidden map-container">
       <Map onMarkerClick={(data) => setInfo(data)} />
       <div className="map-floater bg-zinc-50 drop-shadow-xl rounded-md py-1 pr-1 pl-2.5 mx-auto">
         <div className="flex font-bold text-3xl items-center">
