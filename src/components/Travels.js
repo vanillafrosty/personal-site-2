@@ -25,7 +25,7 @@ const TravelsPage = () => {
         }}
         className={cs(
           "overlay-min",
-          "drop-shadow-2xl cursor-pointer rounded-md mb-10 text-xl font-bold hover:bg-slate-900 hover:text-white",
+          "drop-shadow-2xl cursor-pointer rounded-md text-xl font-bold hover:bg-slate-900 hover:text-white",
           {
             "z-hidden": !clicked,
             "z-regular": info.name,
