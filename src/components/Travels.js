@@ -39,7 +39,7 @@ const TravelsPage = () => {
         <div className="my-4 mx-6 text-center title-ellipsis">{info.name}</div>
       </div>
       <div
-        className={`overlay-max overflow-y-scroll rounded ${
+        className={`overlay-max overflow-y-auto rounded ${
           clicked ? "overlay-max-extended" : ""
         }`}
       >
