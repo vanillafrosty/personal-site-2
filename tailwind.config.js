@@ -20,6 +20,7 @@ module.exports = {
       },
       screens: {
         tiny: "576px",
+        micro: "512px",
       },
       height: {
         17: "4.25rem",
