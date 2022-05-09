@@ -15,42 +15,40 @@ const App = () => {
   }, [location.pathname]);
 
   return (
-    <>
+    <div
+      className={`font-sans h-screen text-black ${
+        page === "/" ? "overflow-hidden" : ""
+      }`}
+    >
       <div
-        className={`font-sans h-screen text-black ${
-          page === "/" ? "overflow-hidden" : ""
+        className={`h-17 flex sticky top-0 justify-between p-4 bg-red-50 drop-shadow-md ${
+          page === "/" ? "hidden" : ""
         }`}
       >
-        <div
-          className={`h-17 flex sticky top-0 justify-between p-4 bg-red-50 ${
-            page === "/" ? "hidden" : ""
-          }`}
-        >
-          <div className="flex font-bold text-3xl items-center">
-            <div>DWU Reviews</div>
-          </div>
-          <Burger className="tiny:hidden" />
-          <div className="hidden tiny:flex text-lg font-bold items-center">
-            <NavAbout
-              className={
-                page === "/about"
-                  ? "shadow-lower mr-4"
-                  : "mr-4 hover:shadow-lower"
-              }
-            />
-            <NavTravel
-              className={
-                page === "/" ? "shadow-lower mr-4" : "mr-4 hover:shadow-lower"
-              }
-            />
-          </div>
+        <div className="flex font-bold text-3xl items-center">
+          <div>Woo Food</div>
         </div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+        <Burger className="tiny:hidden" />
+        <div className="hidden tiny:flex text-lg font-bold items-center">
+          <NavAbout
+            className={
+              page === "/about"
+                ? "shadow-lower mr-4"
+                : "mr-4 hover:shadow-lower"
+            }
+          />
+          <NavTravel
+            className={
+              page === "/" ? "shadow-lower mr-4" : "mr-4 hover:shadow-lower"
+            }
+          />
+        </div>
       </div>
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </div>
   );
 };
 
