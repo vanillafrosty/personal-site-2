@@ -8,6 +8,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .left-arrow {
+    text-align: center;
+    margin-right: auto;
+  }
+  .right-arrow {
+    text-align: center;
+    margin-left: auto;
+  }
 }
 
 .carousel-card {

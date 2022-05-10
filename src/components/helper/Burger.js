@@ -9,15 +9,13 @@ const Burger = ({ className }) => {
   return (
     <>
       <div
+        onClick={() => setBurgerDown((prevDown) => !prevDown)}
         className={cs(
           "burger-parent w-12 h-9 py-1.5 cursor-pointer rounded-md",
           className
         )}
       >
-        <div
-          onClick={() => setBurgerDown((prevDown) => !prevDown)}
-          className="text-center"
-        >
+        <div className="text-center">
           <i className="fa-solid fa-bars fa-2xl"></i>
         </div>
         <div

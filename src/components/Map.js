@@ -17,7 +17,6 @@ const Map = ({ onMarkerClick, recenterPos }) => {
 
   function GetZoom({ recenterPos }) {
     const map = useMap();
-    console.log(recenterPos);
 
     if (recenterPos.lat && recenterPos.long) {
       const zoom = map.getZoom();
