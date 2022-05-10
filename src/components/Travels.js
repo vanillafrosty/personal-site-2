@@ -14,6 +14,7 @@ const TravelsPage = () => {
   const [images, setImages] = useState({});
   const [currentImages, setCurrentImages] = useState(null);
   const [currentImagesKeys, setCurrentImagesKeys] = useState([]);
+  const [recenterPos, setRecenterPos] = useState({});
 
   const loadImages = async () => {
     const data = await import("../data/images");
@@ -32,14 +33,36 @@ const TravelsPage = () => {
     }
   }, [info.id, images]);
 
+  const recenter = () => {
+    if (info.id) {
+      console.log("called");
+      setRecenterPos({
+        lat: info.geometry.coordinates[0],
+        long: info.geometry.coordinates[1],
+      });
+    }
+  };
+
+  const onMarkerClick = (data) => {
+    setInfo(data);
+    setRecenterPos({});
+  };
+
   return (
     <div className="overflow-hidden map-container">
-      <Map onMarkerClick={(data) => setInfo(data)} />
-      <div className="map-floater bg-zinc-50 drop-shadow-xl rounded-md py-1 pr-1 pl-2.5 mx-auto">
+      <Map onMarkerClick={onMarkerClick} recenterPos={recenterPos} />
+      <div className="menu-floater bg-zinc-50 drop-shadow-xl rounded-md py-1 pr-1 pl-2.5">
         <div className="flex font-bold text-3xl items-center">
           <div className="mr-1">Woo Food</div>
         </div>
         <Burger />
+      </div>
+      <div
+        onClick={recenter}
+        className="marker-floater bg-zinc-50 drop-shadow-md rounded-md"
+        title="Snap to current marker"
+      >
+        <i className="fa-solid fa-location-dot fa-lg px-2 py-4"></i>
       </div>
       <div
         onClick={() => {

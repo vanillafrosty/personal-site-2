@@ -37,12 +37,22 @@
   z-index: 24;
 }
 
-.map-floater {
+.menu-floater {
   position: absolute;
   display: flex;
-  top: 50px;
-  right: 50px;
+  top: 3.125rem;
+  right: 3.125rem;
   z-index: 24;
+}
+
+.marker-floater {
+  position: absolute;
+  display: flex;
+  top: 5rem;
+  left: 0.75rem;
+  z-index: 24;
+  color: rgba(0, 170, 213, 1);
+  cursor: pointer;
 }
 
 .title-ellipsis,

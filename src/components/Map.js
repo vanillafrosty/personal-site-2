@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useMap } from "react-leaflet/hooks";
 import iconMap from "../utils/iconMap";
 
-const Map = ({ onMarkerClick }) => {
+const Map = ({ onMarkerClick, recenterPos }) => {
   const [markers, setMarkers] = useState([]);
 
   const loadData = async () => {
@@ -14,13 +15,26 @@ const Map = ({ onMarkerClick }) => {
     loadData();
   }, []);
 
+  function GetZoom({ recenterPos }) {
+    const map = useMap();
+    console.log(recenterPos);
+
+    if (recenterPos.lat && recenterPos.long) {
+      const zoom = map.getZoom();
+      map.setView([recenterPos.lat, recenterPos.long], zoom);
+    }
+
+    return null;
+  }
+
   return (
     <MapContainer
       className="z-10 h-screen"
       center={[32.76301228860241, -117.13063799019834]}
       zoom={12}
-      scrollWheelZoom={false}
+      scrollWheelZoom={true}
     >
+      <GetZoom recenterPos={recenterPos} />
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -34,6 +48,9 @@ const Map = ({ onMarkerClick }) => {
             click: () => {
               onMarkerClick(el);
             },
+          }}
+          style={{
+            backgroundPosition: "0 0",
           }}
         >
           <Popup>{el.name}</Popup>
