@@ -37,7 +37,7 @@ const TravelsPage = () => {
       <Map onMarkerClick={(data) => setInfo(data)} />
       <div className="map-floater bg-zinc-50 drop-shadow-xl rounded-md py-1 pr-1 pl-2.5 mx-auto">
         <div className="flex font-bold text-3xl items-center">
-          <div className="mr-1">DWU Reviews</div>
+          <div className="mr-1">Woo Food</div>
         </div>
         <Burger />
       </div>
