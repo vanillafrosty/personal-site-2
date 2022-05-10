@@ -4,11 +4,13 @@ import cs from "classnames";
 import "../stylesheets/Travels.scss";
 import Burger from "./helper/Burger";
 import Carousel from "./helper/Carousel";
+import useWindowDimensions from "../utils/windowResize";
 
 const TravelsPage = () => {
   const [clicked, setClicked] = useState(null);
   const [info, setInfo] = useState({});
   const [images, setImages] = useState({});
+  const { width } = useWindowDimensions();
   const [currentImages, setCurrentImages] = useState({});
   const [recenterPos, setRecenterPos] = useState({});
 
@@ -60,6 +62,7 @@ const TravelsPage = () => {
       <div
         onClick={() => {
           setClicked(true);
+          setRecenterPos({});
         }}
         className={cs(
           "overlay-min",
@@ -69,6 +72,10 @@ const TravelsPage = () => {
             "z-regular": info.name,
           }
         )}
+        style={{
+          marginLeft: (width - 512) / 2,
+          marginRight: (width - 512) / 2,
+        }}
       >
         <div className="my-4 mx-6 text-center title-ellipsis">{info.name}</div>
       </div>
