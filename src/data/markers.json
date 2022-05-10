@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Cantina Mayahuel",
-      "description": "Good spot for tacos and mezcal.",
+      "logline": "Good spot for tacos and mezcal.",
       "geometry": {
         "type": "Point",
         "coordinates": [32.763022559621966, -117.13063587080245]
@@ -13,7 +13,7 @@
     {
       "id": 2,
       "name": "El Pescador Fish Market",
-      "description": "Good spot for fish and seafood stuff.",
+      "logline": "Good spot for fish and seafood stuff.",
       "geometry": {
         "type": "Point",
         "coordinates": [32.8398052313514, -117.27631336345621]
