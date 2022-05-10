@@ -10,6 +10,7 @@ module.exports = {
         112: "28rem",
         128: "32rem",
         144: "36rem",
+        "32p": "32%",
       },
       fontFamily: {
         sans: ["Raleway", "sans-serif"],

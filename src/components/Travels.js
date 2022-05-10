@@ -76,13 +76,13 @@ const TravelsPage = () => {
         <div className="my-4 mx-6 text-center text-xl font-bold title-wrap">
           {info.name}
         </div>
-        <div className="carousel">
+        <div className="carousel w-10/12">
           {currentImages &&
             currentImagesKeys.map((el, i) => (
               <div
                 key={el}
                 onClick={() => setActiveCard(i)}
-                className={cs("carousel-card", {
+                className={cs("carousel-card w-5/12 lg:w-32p xl:w-3/12", {
                   "card-active": activeCard === i,
                   "card-inactive-left":
                     activeCard ===
