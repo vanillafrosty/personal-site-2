@@ -19,12 +19,12 @@ const Burger = ({ className }) => {
           <i className="fa-solid fa-bars fa-2xl"></i>
         </div>
         <div
-          className={`burger w-28 bg-white text-lg text-right font-bold border border-gray-900 rounded ${
+          className={`burger w-28 bg-white text-lg text-right font-bold rounded ${
             burgerDown ? "burger-down" : ""
           } ${burgerDown === false ? "burger-down burger-up" : ""}`}
         >
-          <NavAbout className="block hover:bg-slate-900 hover:text-white px-4 py-2 border-b border-slate-700" />
-          <NavTravel className="block hover:bg-slate-900 hover:text-white px-4 py-2" />
+          <NavAbout className="block rounded-t hover:bg-slate-900 hover:text-white px-4 py-2 border-b border-slate-200" />
+          <NavTravel className="block rounded-b hover:bg-slate-900 hover:text-white px-4 py-2" />
         </div>
       </div>
     </>

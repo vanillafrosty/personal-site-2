@@ -11,6 +11,7 @@
   left: 0;
   width: 32rem;
   background-color: white;
+  filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.4));
 }
 
 .overlay-max {
@@ -43,6 +44,7 @@
   top: 3.125rem;
   right: 3.125rem;
   z-index: 24;
+  filter: drop-shadow(0 0 0.5rem rgb(0, 0, 0, 0.3));
 }
 
 .marker-floater {

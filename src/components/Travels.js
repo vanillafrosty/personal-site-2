@@ -46,7 +46,7 @@ const TravelsPage = () => {
   return (
     <div className="overflow-hidden map-container">
       <Map onMarkerClick={onMarkerClick} recenterPos={recenterPos} />
-      <div className="menu-floater bg-zinc-50 drop-shadow-xl rounded-md py-1 pr-1 pl-2.5">
+      <div className="menu-floater bg-zinc-50 rounded-md py-1 pr-1 pl-2.5">
         <div className="flex font-bold text-3xl items-center">
           <div className="mr-1">Woo Food</div>
         </div>
@@ -66,7 +66,7 @@ const TravelsPage = () => {
         }}
         className={cs(
           "overlay-min",
-          "drop-shadow-2xl mb-14 micro:mb-16 cursor-pointer rounded-md text-xl font-bold hover:bg-slate-900 hover:text-white",
+          "mb-14 micro:mb-16 cursor-pointer rounded-md text-xl font-bold hover:bg-slate-900 hover:text-white",
           {
             "z-hidden": !clicked,
             "z-regular": info.name,
