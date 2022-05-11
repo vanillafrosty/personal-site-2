@@ -11,9 +11,21 @@ const AboutPage = () => {
       />
       <div className="text-justify mx-8">
         <div className="mt-8 mb-8">Welcome - my name is David.</div>
-        <div className="mt-8 mb-10">
+        <div className="mt-8 mb-8">
           On this site you can find reviews of places I've eaten at, mostly from
           2022 onward, when this site was created.
+        </div>
+        <div className="mt-8 mb-4">
+          I coded this site from scratch. You can support me below with a
+          donation to help me maintain and improve the site.
+        </div>
+        <div className="text-center mb-10">
+          <a
+            className="block w-11/12 mt-5 mx-auto bg-red-400 p-3 rounded text-white text-lg font-bold"
+            href="https://ko-fi.com/woofood"
+          >
+            Support me on Kofi
+          </a>
         </div>
         {/* <div className="mt-8 mb-10">
           <div className="border rounded mb-2 border-orange-400"></div>
