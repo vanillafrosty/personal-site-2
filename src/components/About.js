@@ -10,14 +10,15 @@ const AboutPage = () => {
         alt="Me"
       />
       <div className="text-justify mx-8">
-        <div className="mt-8 mb-8">Welcome - my name is David.</div>
+        <div className="mt-8 mb-8">Welcome! My name is David.</div>
         <div className="mt-8 mb-8">
           On this site you can find reviews of places I've eaten at, mostly from
           2022 onward, when this site was created.
         </div>
         <div className="mt-8 mb-4">
           I coded this site from scratch. You can support me below with a
-          donation to help me maintain and improve the site.
+          donation to help me maintain and improve the site, as well as find
+          more time to explore and review food.
         </div>
         <div className="text-center mb-10">
           <a
