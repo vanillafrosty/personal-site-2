@@ -4,6 +4,11 @@
       "id": 1,
       "name": "Cantina Mayahuel",
       "logline": "Good spot for tacos and mezcal.",
+      "address": "2934 Adams Ave",
+      "city": "San Diego",
+      "state": "CA",
+      "country": "USA",
+      "zipCode": 92116,
       "geometry": {
         "type": "Point",
         "coordinates": [32.763022559621966, -117.13063587080245]
@@ -14,6 +19,11 @@
       "id": 2,
       "name": "El Pescador Fish Market",
       "logline": "Good spot for fish and seafood stuff.",
+      "address": "634 Pearl St",
+      "city": "La Jolla",
+      "state": "CA",
+      "country": "USA",
+      "zipCode": 92037,
       "geometry": {
         "type": "Point",
         "coordinates": [32.8398052313514, -117.27631336345621]

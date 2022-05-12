@@ -6,6 +6,19 @@ import Burger from "./helper/Burger";
 import Carousel from "./helper/Carousel";
 import useWindowDimensions from "../utils/windowResize";
 
+const makeAddress = (options) => {
+  if (!options.address) {
+    return "";
+  }
+  const keys = ["address", "city", "state", "zipCode", "country"];
+  return keys.reduce((prev, curr, i) => {
+    if (i && options[curr]) {
+      return prev + ", " + options[curr];
+    }
+    return prev;
+  }, options.address);
+};
+
 const TravelsPage = () => {
   const [clicked, setClicked] = useState(null);
   const [info, setInfo] = useState({});
@@ -13,6 +26,8 @@ const TravelsPage = () => {
   const { width } = useWindowDimensions();
   const [currentImages, setCurrentImages] = useState({});
   const [recenterPos, setRecenterPos] = useState({});
+  const [address, setAddress] = useState("");
+  const [copied, setCopied] = useState(false);
 
   const loadImages = async () => {
     const data = await import("../data/images");
@@ -26,8 +41,15 @@ const TravelsPage = () => {
   useEffect(() => {
     if (images[info.id]) {
       setCurrentImages(images[info.id]);
+      setAddress(makeAddress(info));
     }
-  }, [info.id, images]);
+  }, [info, images]);
+
+  useEffect(() => {
+    if (!copied) {
+      setCopied(true);
+    }
+  }, [copied]);
 
   const recenter = () => {
     if (info.id) {
@@ -52,13 +74,15 @@ const TravelsPage = () => {
         </div>
         <Burger />
       </div>
-      <div
-        onClick={recenter}
-        className="marker-floater bg-zinc-50 drop-shadow-md rounded-md"
-        title="Snap to current marker"
-      >
-        <i className="fa-solid fa-location-dot fa-lg px-2 py-4"></i>
-      </div>
+      {info.id && (
+        <div
+          onClick={recenter}
+          className="marker-floater bg-zinc-50 drop-shadow-md rounded-md"
+          title="Snap to current marker"
+        >
+          <i className="fa-solid fa-location-dot fa-lg px-2 py-4"></i>
+        </div>
+      )}
       <div
         onClick={() => {
           setClicked(true);
@@ -85,7 +109,10 @@ const TravelsPage = () => {
         }`}
       >
         <div
-          onClick={() => setClicked(false)}
+          onClick={() => {
+            setClicked(false);
+            setCopied(false);
+          }}
           className="cursor-pointer rounded text-center"
         >
           <div className="w-12 mx-auto bg-slate-400 text-white rounded-b-md">
@@ -95,9 +122,49 @@ const TravelsPage = () => {
         <div className="my-4 mx-6 text-center text-xl font-bold title-wrap">
           {info.name}
         </div>
+        <div className="text-center">
+          {address}
+          {"  "}
+          <i
+            title="Copy to clipboard"
+            onClick={() => {
+              navigator.clipboard.writeText(address);
+              setCopied((prevCopied) => !prevCopied);
+            }}
+            className="cursor-pointer p-1.5 fa-regular fa-copy clipboard-icon"
+          >
+            <div
+              className={cs("bubble bubble-bottom-left", {
+                "bubble-fadein": copied,
+              })}
+            >
+              Copied!
+            </div>
+          </i>
+        </div>
         <Carousel currentImages={currentImages} />
         <div className="w-9/12 md:w-144 mt-12 mx-auto text-justify">
           {info.logline}
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
+          asdfasdfadfadfasdfasdf
         </div>
       </div>
     </div>
