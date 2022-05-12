@@ -13,7 +13,8 @@
         "type": "Point",
         "coordinates": [32.763022559621966, -117.13063587080245]
       },
-      "type": ["Restaurant"]
+      "type": ["Restaurant"],
+      "price": 2
     },
     {
       "id": 2,
@@ -28,7 +29,8 @@
         "type": "Point",
         "coordinates": [32.8398052313514, -117.27631336345621]
       },
-      "type": ["Restaurant", "Marketplace"]
+      "type": ["Restaurant", "Marketplace"],
+      "price": 2
     }
   ]
 }

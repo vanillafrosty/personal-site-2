@@ -122,7 +122,7 @@ const TravelsPage = () => {
         <div className="my-4 mx-6 text-center text-xl font-bold title-wrap">
           {info.name}
         </div>
-        <div className="text-center">
+        <div className="text-center text-base">
           {address}
           {"  "}
           <i
@@ -141,6 +141,11 @@ const TravelsPage = () => {
               Copied!
             </div>
           </i>
+        </div>
+        <div className="mt-1 text-center">
+          {[...Array(info.price)].map((e, index) => (
+            <i key={index} className="fa-solid fa-dollar-sign"></i>
+          ))}
         </div>
         <Carousel currentImages={currentImages} />
         <div className="w-9/12 md:w-144 mt-12 mx-auto text-justify">
