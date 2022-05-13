@@ -1,0 +1,184 @@
+{
+  "markers": [
+    {
+      "category": "anti-social-behaviour",
+      "location_type": "Force",
+      "location": {
+        "latitude": "52.639138",
+        "street": {
+          "id": 883355,
+          "name": "On or near Junior Street"
+        },
+        "longitude": "-1.137683"
+      },
+      "context": "",
+      "outcome_status": null,
+      "persistent_id": "",
+      "id": 78212917,
+      "location_subtype": "",
+      "month": "2019-10"
+    },
+    {
+      "category": "anti-social-behaviour",
+      "location_type": "Force",
+      "location": {
+        "latitude": "52.639814",
+        "street": {
+          "id": 883235,
+          "name": "On or near Sanvey Gate"
+        },
+        "longitude": "-1.139118"
+      },
+      "context": "",
+      "outcome_status": null,
+      "persistent_id": "",
+      "id": 78210731,
+      "location_subtype": "",
+      "month": "2019-10"
+    },
+    {
+      "category": "anti-social-behaviour",
+      "location_type": "Force",
+      "location": {
+        "latitude": "52.629778",
+        "street": {
+          "id": 883285,
+          "name": "On or near Brookhouse Avenue"
+        },
+        "longitude": "-1.121585"
+      },
+      "context": "",
+      "outcome_status": null,
+      "persistent_id": "",
+      "id": 78211001,
+      "location_subtype": "",
+      "month": "2019-10"
+    },
+    {
+      "category": "anti-social-behaviour",
+      "location_type": "Force",
+      "location": {
+        "latitude": "52.627729",
+        "street": {
+          "id": 883058,
+          "name": "On or near Churchill Street"
+        },
+        "longitude": "-1.116884"
+      },
+      "context": "",
+      "outcome_status": null,
+      "persistent_id": "",
+      "id": 78211002,
+      "location_subtype": "",
+      "month": "2019-10"
+    },
+    {
+      "category": "anti-social-behaviour",
+      "location_type": "Force",
+      "location": {
+        "latitude": "52.637069",
+        "street": {
+          "id": 883413,
+          "name": "On or near Supermarket"
+        },
+        "longitude": "-1.131414"
+      },
+      "context": "",
+      "outcome_status": null,
+      "persistent_id": "",
+      "id": 78209580,
+      "location_subtype": "",
+      "month": "2019-10"
+    },
+    {
+      "category": "anti-social-behaviour",
+      "location_type": "Force",
+      "location": {
+        "latitude": "52.643195",
+        "street": {
+          "id": 884360,
+          "name": "On or near Conference/exhibition Centre"
+        },
+        "longitude": "-1.129430"
+      },
+      "context": "",
+      "outcome_status": null,
+      "persistent_id": "",
+      "id": 78217351,
+      "location_subtype": "",
+      "month": "2019-10"
+    },
+    {
+      "category": "anti-social-behaviour",
+      "location_type": "Force",
+      "location": {
+        "latitude": "52.630787",
+        "street": {
+          "id": 883346,
+          "name": "On or near Marlborough Street"
+        },
+        "longitude": "-1.132897"
+      },
+      "context": "",
+      "outcome_status": null,
+      "persistent_id": "",
+      "id": 78208800,
+      "location_subtype": "",
+      "month": "2019-10"
+    },
+    {
+      "category": "anti-social-behaviour",
+      "location_type": "Force",
+      "location": {
+        "latitude": "52.617692",
+        "street": {
+          "id": 882389,
+          "name": "On or near Oxford Road"
+        },
+        "longitude": "-1.118725"
+      },
+      "context": "",
+      "outcome_status": null,
+      "persistent_id": "",
+      "id": 78211266,
+      "location_subtype": "",
+      "month": "2019-10"
+    },
+    {
+      "category": "anti-social-behaviour",
+      "location_type": "Force",
+      "location": {
+        "latitude": "52.632887",
+        "street": {
+          "id": 883388,
+          "name": "On or near Belvoir Street"
+        },
+        "longitude": "-1.131127"
+      },
+      "context": "",
+      "outcome_status": null,
+      "persistent_id": "",
+      "id": 78209038,
+      "location_subtype": "",
+      "month": "2019-10"
+    },
+    {
+      "category": "anti-social-behaviour",
+      "location_type": "Force",
+      "location": {
+        "latitude": "52.634824",
+        "street": {
+          "id": 883427,
+          "name": "On or near Janet Setchfield Place"
+        },
+        "longitude": "-1.139112"
+      },
+      "context": "",
+      "outcome_status": null,
+      "persistent_id": "",
+      "id": 78208797,
+      "location_subtype": "",
+      "month": "2019-10"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+.marker-floater {
+  position: fixed;
+  display: flex;
+  top: 5rem;
+  left: 0.75rem;
+  z-index: 999;
+  color: rgba(0, 170, 213, 1);
+  cursor: pointer;
+}
