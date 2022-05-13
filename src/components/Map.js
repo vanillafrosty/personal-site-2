@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useMap } from "react-leaflet/hooks";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import iconMap from "../utils/iconMap";
 
 const Map = ({ onMarkerClick, recenterPos }) => {
