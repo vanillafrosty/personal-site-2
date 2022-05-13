@@ -111,7 +111,6 @@ const TravelsPage = () => {
         <div
           onClick={() => {
             setClicked(false);
-            setCopied(false);
           }}
           className="cursor-pointer rounded text-center"
         >
