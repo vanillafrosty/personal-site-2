@@ -73,8 +73,8 @@ const Map = ({ onMarkerClick }) => {
 
     const recenter = () => {
       if (currentMarker?.geometry) {
-        const zoom = map.getZoom();
-        map.setView(currentMarker.geometry.coordinates, zoom);
+        // const zoom = map.getZoom();
+        map.panTo(currentMarker.geometry.coordinates);
       }
     };
 
@@ -133,32 +133,49 @@ const Map = ({ onMarkerClick }) => {
   });
 
   function Markers({ clusters }) {
-    const maphook = useMap();
+    // const maphook = useMap();
     return clusters.map((cluster) => {
       // every cluster point has coordinates
       const [longitude, latitude] = cluster.geometry.coordinates;
       // the point may be either a cluster or a crime point
       const { cluster: isCluster, point_count: pointCount } =
         cluster.properties;
-
+      return (
+        <Marker
+          key={`cluster-${cluster.id}`}
+          position={[latitude, longitude]}
+          eventHandlers={{
+            click: () => {
+              // onMarkerClick(cluster);
+              setCurrentMarker(cluster);
+            },
+          }}
+        />
+      );
       // we have a cluster to render
       if (isCluster) {
+        // return (
+        //   <Marker
+        //     key={`cluster-${cluster.id}`}
+        //     position={[latitude, longitude]}
+        //     icon={clusterIcon(pointCount)}
+        //     eventHandlers={{
+        //       click: () => {
+        //         const expansionZoom = Math.min(
+        //           supercluster.getClusterExpansionZoom(cluster.id),
+        //           17
+        //         );
+        //         maphook.setView([latitude, longitude], expansionZoom, {
+        //           animate: true,
+        //         });
+        //       },
+        //     }}
+        //   />
+        // );
         return (
           <Marker
             key={`cluster-${cluster.id}`}
             position={[latitude, longitude]}
-            icon={clusterIcon(pointCount)}
-            eventHandlers={{
-              click: () => {
-                const expansionZoom = Math.min(
-                  supercluster.getClusterExpansionZoom(cluster.id),
-                  17
-                );
-                maphook.setView([latitude, longitude], expansionZoom, {
-                  animate: true,
-                });
-              },
-            }}
           />
         );
       }
@@ -196,6 +213,7 @@ const Map = ({ onMarkerClick }) => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
       <RecenterButton currentMarker={currentMarker} />
+      <MyComponent />
       <Markers clusters={clusters} />
     </MapContainer>
   );
