@@ -4,18 +4,14 @@ import {
   MapContainer,
   TileLayer,
   Marker,
-  Popup,
+  Tooltip,
   useMap,
   useMapEvents,
 } from "react-leaflet";
-import useSwr from "swr";
-import useSupercluster from "use-supercluster";
+import Supercluster from "supercluster";
 import iconMap from "../utils/iconMap";
 import "../stylesheets/supercluster.scss";
 import "../stylesheets/map.scss";
-
-const fetcherImport = () =>
-  import("../data/markers.json").then((response) => response);
 
 const icons = {};
 const clusterIcon = (count) => {
@@ -61,20 +57,58 @@ const clusterIcon = (count) => {
 };
 
 const Map = ({ onMarkerClick }) => {
-  const [bounds, setBounds] = useState([
-    -117.41981506347658, 32.682730243559504, -116.84131622314455,
-    32.8432505241666,
-  ]);
-  const [zoom, setZoom] = useState(12);
   const [currentMarker, setCurrentMarker] = useState({});
+  const [markers, setMarkers] = useState([]);
+  const [index, setIndex] = useState(null);
+  const [bounds, setBounds] = useState([]);
+
+  const loadData = async () => {
+    const { markers } = await import("../data/markers.json");
+    const index = new Supercluster({
+      log: true,
+      radius: 60,
+      extent: 256,
+      maxZoom: 17,
+    }).load(markers);
+
+    // [westLng, southLat, eastLng, northLat]
+    const initialBounds = bounds;
+    const initialZoom = 12;
+    const points = index.getClusters(initialBounds, initialZoom);
+    setIndex(index);
+    setMarkers(points);
+  };
+
+  useEffect(() => {
+    if (bounds.length) {
+      loadData();
+    }
+  }, [bounds]);
+
+  function SetInitialBounds({ updateBounds }) {
+    const map = useMap();
+
+    useEffect(() => {
+      const bounds = map.getBounds();
+      updateBounds([
+        bounds.getWest(),
+        bounds.getSouth(),
+        bounds.getEast(),
+        bounds.getNorth(),
+      ]);
+    }, []);
+
+    return null;
+  }
 
   function RecenterButton({ currentMarker }) {
     const map = useMap();
 
     const recenter = () => {
       if (currentMarker?.geometry) {
-        // const zoom = map.getZoom();
-        map.panTo(currentMarker.geometry.coordinates);
+        const [longitude, latitude] = currentMarker.geometry.coordinates;
+        const zoom = map.getZoom();
+        map.setView([latitude, longitude], zoom);
       }
     };
 
@@ -95,87 +129,43 @@ const Map = ({ onMarkerClick }) => {
   function MyComponent() {
     const map = useMapEvents({
       moveend: () => {
-        setBounds([
-          map.getBounds().getSouthWest().lng,
-          map.getBounds().getSouthWest().lat,
-          map.getBounds().getNorthEast().lng,
-          map.getBounds().getNorthEast().lat,
-        ]);
-        setZoom(map.getZoom());
+        if (index) {
+          const bounds = map.getBounds();
+          setMarkers(
+            index.getClusters(
+              [
+                bounds.getWest(),
+                bounds.getSouth(),
+                bounds.getEast(),
+                bounds.getNorth(),
+              ],
+              map.getZoom()
+            )
+          );
+        }
       },
     });
     return null;
   }
 
-  const { data, error } = useSwr("../data/markers.json", fetcherImport);
-  const markers = data?.markers && !error ? data?.markers : [];
-  const points = markers.map((marker) => ({
-    ...marker,
-    type: "Feature",
-    properties: {
-      cluster: false,
-      markerId: marker.id,
-      category: marker.markerType,
-    },
-    geometry: {
-      type: "Point",
-      coordinates: [
-        parseFloat(marker.location.longitude),
-        parseFloat(marker.location.latitude),
-      ],
-    },
-  }));
-  const { clusters, supercluster } = useSupercluster({
-    points,
-    bounds,
-    zoom,
-    options: { radius: 75, maxZoom: 17 },
-  });
+  function Markers({ markers }) {
+    const maphook = useMap();
+    return markers.map((marker) => {
+      const [longitude, latitude] = marker.geometry.coordinates;
 
-  function Markers({ clusters }) {
-    // const maphook = useMap();
-    return clusters.map((cluster) => {
-      // every cluster point has coordinates
-      const [longitude, latitude] = cluster.geometry.coordinates;
-      // the point may be either a cluster or a crime point
-      const { cluster: isCluster, point_count: pointCount } =
-        cluster.properties;
-      return (
-        <Marker
-          key={`cluster-${cluster.id}`}
-          position={[latitude, longitude]}
-          eventHandlers={{
-            click: () => {
-              // onMarkerClick(cluster);
-              setCurrentMarker(cluster);
-            },
-          }}
-        />
-      );
-      // we have a cluster to render
-      if (isCluster) {
-        // return (
-        //   <Marker
-        //     key={`cluster-${cluster.id}`}
-        //     position={[latitude, longitude]}
-        //     icon={clusterIcon(pointCount)}
-        //     eventHandlers={{
-        //       click: () => {
-        //         const expansionZoom = Math.min(
-        //           supercluster.getClusterExpansionZoom(cluster.id),
-        //           17
-        //         );
-        //         maphook.setView([latitude, longitude], expansionZoom, {
-        //           animate: true,
-        //         });
-        //       },
-        //     }}
-        //   />
-        // );
+      //we have a cluster to render
+      if (marker.properties.cluster_id) {
         return (
           <Marker
-            key={`cluster-${cluster.id}`}
+            key={marker.id}
             position={[latitude, longitude]}
+            icon={clusterIcon(marker.properties.point_count)}
+            eventHandlers={{
+              click: () => {
+                const expansionZoom = index.getClusterExpansionZoom(marker.id);
+                maphook.setView([latitude, longitude], expansionZoom);
+              },
+            }}
           />
         );
       }
@@ -183,19 +173,19 @@ const Map = ({ onMarkerClick }) => {
       // we have a single point to render
       return (
         <Marker
-          key={`crime-${cluster.properties.crimeId}`}
+          key={`marker-${marker.properties.id}`}
           position={[latitude, longitude]}
-          icon={iconMap[cluster.markerType[0]]}
+          icon={iconMap[marker.properties.type[0]]}
           eventHandlers={{
             click: () => {
-              onMarkerClick(cluster);
-              setCurrentMarker(cluster);
+              onMarkerClick(marker);
+              setCurrentMarker(marker);
             },
           }}
         >
-          {/* <Tooltip direction="bottom" offset={[0, 0]} opacity={1} permanent>
-            {cluster.name}
-          </Tooltip> */}
+          <Tooltip direction="bottom" offset={[0, 0]} opacity={1} permanent>
+            {marker.properties.name}
+          </Tooltip>
         </Marker>
       );
     });
@@ -212,9 +202,16 @@ const Map = ({ onMarkerClick }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
+      <SetInitialBounds
+        updateBounds={(boundsArr) => {
+          if (bounds.length === 0) {
+            setBounds(boundsArr);
+          }
+        }}
+      />
       <RecenterButton currentMarker={currentMarker} />
       <MyComponent />
-      <Markers clusters={clusters} />
+      <Markers markers={markers} />
     </MapContainer>
   );
 };

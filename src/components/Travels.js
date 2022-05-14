@@ -21,7 +21,10 @@ const makeAddress = (options) => {
 
 const TravelsPage = () => {
   const [clicked, setClicked] = useState(null);
-  const [info, setInfo] = useState({ geometry: { coordinates: [] } });
+  const [info, setInfo] = useState({
+    properties: {},
+    geometry: { coordinates: [] },
+  });
   const [images, setImages] = useState({});
   const { width } = useWindowDimensions();
   const [currentImages, setCurrentImages] = useState({});
@@ -38,9 +41,9 @@ const TravelsPage = () => {
   }, []);
 
   useEffect(() => {
-    if (images[info.id]) {
-      setCurrentImages(images[info.id]);
-      setAddress(makeAddress(info));
+    if (images[info.properties.id]) {
+      setCurrentImages(images[info.properties.id]);
+      setAddress(makeAddress(info.properties));
     }
   }, [info, images]);
 
@@ -72,7 +75,7 @@ const TravelsPage = () => {
           "mb-14 micro:mb-16 cursor-pointer rounded-md text-xl font-bold hover:bg-slate-900 hover:text-white",
           {
             "z-hidden": !clicked,
-            "z-regular": info.name,
+            "z-regular": info.properties.name,
           }
         )}
         style={{
@@ -80,7 +83,9 @@ const TravelsPage = () => {
           marginRight: (width - 512) / 2,
         }}
       >
-        <div className="my-4 mx-6 text-center title-ellipsis">{info.name}</div>
+        <div className="my-4 mx-6 text-center title-ellipsis">
+          {info.properties.name}
+        </div>
       </div>
       <div
         className={`overlay-max overflow-y-auto rounded ${
@@ -98,7 +103,7 @@ const TravelsPage = () => {
           </div>
         </div>
         <div className="my-4 mx-6 text-center text-xl font-bold title-wrap">
-          {info.name}
+          {info.properties.name}
         </div>
         <div className="text-center text-base">
           {address}
@@ -121,13 +126,13 @@ const TravelsPage = () => {
           </i>
         </div>
         <div className="mt-1 text-center">
-          {[...Array(info.price)].map((e, index) => (
+          {[...Array(info.properties.price)].map((e, index) => (
             <i key={index} className="fa-solid fa-dollar-sign"></i>
           ))}
         </div>
         <Carousel currentImages={currentImages} />
         <div className="w-9/12 md:w-144 mt-12 mx-auto text-justify">
-          {info.logline}
+          {info.properties.logline}
           asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
           asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
           asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
