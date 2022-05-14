@@ -1,10 +1,9 @@
 import L from "leaflet";
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { useMap, useMapEvents } from "react-leaflet/hooks";
 import useSwr from "swr";
 import useSupercluster from "use-supercluster";
-import { usePrevious } from "./helper/usePrev";
 import iconMap from "../utils/iconMap";
 import "../stylesheets/supercluster.scss";
 import "../stylesheets/map.scss";
@@ -13,7 +12,7 @@ const fetcherImport = () =>
   import("../data/markers.json").then((response) => response);
 
 const icons = {};
-const fetchIcon2 = (count) => {
+const clusterIcon = (count) => {
   if (!icons[count]) {
     let size = "LargeXL";
 
@@ -62,30 +61,29 @@ const Map = ({ onMarkerClick }) => {
   ]);
   const [zoom, setZoom] = useState(12);
   const [currentMarker, setCurrentMarker] = useState({});
-  const [recenter, setRecenter] = useState(null);
-  const [center, setCenter] = useState([
-    32.76301228860241, -117.13063799019834,
-  ]);
 
-  function GetZoom({ currentMarker, recenter }) {
-    const prevRecenter = usePrevious(recenter);
+  function RecenterButton({ currentMarker }) {
     const map = useMap();
-    console.log("currentmarker", currentMarker.geometry);
-    console.log("recenter", recenter);
-    console.log("prev", prevRecenter);
-    if (
-      currentMarker.geometry?.coordinates &&
-      recenter !== null &&
-      prevRecenter !== recenter
-    ) {
-      const zoom = map.getZoom();
-      map.setView([
-        currentMarker.geometry.coordinates[0],
-        currentMarker.geometry.coordinates[1],
-      ]);
-    }
 
-    return null;
+    const recenter = () => {
+      if (currentMarker?.geometry) {
+        const zoom = map.getZoom();
+        map.setView(currentMarker.geometry.coordinates, zoom);
+      }
+    };
+
+    return (
+      (currentMarker?.geometry && (
+        <div
+          onClick={recenter}
+          className="marker-floater bg-zinc-50 drop-shadow-md rounded-md"
+          title="Snap to current marker"
+        >
+          <i className="fa-solid fa-location-dot px-2 py-4"></i>
+        </div>
+      )) ||
+      null
+    );
   }
 
   function MyComponent() {
@@ -138,97 +136,61 @@ const Map = ({ onMarkerClick }) => {
         cluster.properties;
 
       // we have a cluster to render
-      // if (isCluster) {
-      //   return (
-      //     <Marker
-      //       key={`cluster-${cluster.id}`}
-      //       position={[latitude, longitude]}
-      //       icon={fetchIcon2(pointCount)}
-      //       eventHandlers={{
-      //         click: () => {
-      //           const expansionZoom = Math.min(
-      //             supercluster.getClusterExpansionZoom(cluster.id),
-      //             17
-      //           );
-      //           maphook.setView([latitude, longitude], expansionZoom, {
-      //             animate: true,
-      //           });
-      //         },
-      //       }}
-      //     />
-      //   );
-      // }
-
-      // we have a single point to render
-      if (!isCluster) {
+      if (isCluster) {
         return (
           <Marker
-            key={`crime-${cluster.properties.crimeId}`}
+            key={`cluster-${cluster.id}`}
             position={[latitude, longitude]}
-            icon={iconMap[cluster.markerType[0]]}
+            icon={clusterIcon(pointCount)}
             eventHandlers={{
               click: () => {
-                onMarkerClick(cluster);
-                setCurrentMarker(cluster);
+                const expansionZoom = Math.min(
+                  supercluster.getClusterExpansionZoom(cluster.id),
+                  17
+                );
+                maphook.setView([latitude, longitude], expansionZoom, {
+                  animate: true,
+                });
               },
             }}
-          >
-            {/* <Tooltip direction="bottom" offset={[0, 0]} opacity={1} permanent>
-            {cluster.name}
-          </Tooltip> */}
-          </Marker>
+          />
         );
       }
+
+      // we have a single point to render
+      return (
+        <Marker
+          key={`crime-${cluster.properties.crimeId}`}
+          position={[latitude, longitude]}
+          icon={iconMap[cluster.markerType[0]]}
+          eventHandlers={{
+            click: () => {
+              onMarkerClick(cluster);
+              setCurrentMarker(cluster);
+            },
+          }}
+        >
+          {/* <Tooltip direction="bottom" offset={[0, 0]} opacity={1} permanent>
+            {cluster.name}
+          </Tooltip> */}
+        </Marker>
+      );
     });
   }
 
   return (
     <MapContainer
       className="z-10 h-screen"
-      center={center}
+      center={[32.76301228860241, -117.13063799019834]}
       zoom={12}
       scrollWheelZoom={true}
     >
-      <GetZoom currentMarker={currentMarker} recenter={recenter} />
-      {/* <MyComponent /> */}
-
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
-      <div
-        onClick={() => setRecenter((prevRecenter) => !prevRecenter)}
-        className="marker-floater bg-zinc-50 drop-shadow-md rounded-md"
-        title="Snap to current marker"
-      >
-        <i className="fa-solid fa-location-dot fa-lg px-2 py-4"></i>
-      </div>
-      {/* <Markers clusters={clusters} />
-       */}
-      <Marker
-        eventHandlers={{
-          click: () => {
-            setCurrentMarker({ geometry: { coordinates: [49.8397, 24.0297] } });
-          },
-        }}
-        position={[49.8397, 24.0297]}
-      />
-      <Marker
-        eventHandlers={{
-          click: () => {
-            setCurrentMarker({ geometry: { coordinates: [52.2297, 21.0122] } });
-          },
-        }}
-        position={[52.2297, 21.0122]}
-      />
-      <Marker
-        eventHandlers={{
-          click: () => {
-            setCurrentMarker({ geometry: { coordinates: [51.5074, -0.0901] } });
-          },
-        }}
-        position={[51.5074, -0.0901]}
-      />
+      <RecenterButton currentMarker={currentMarker} />
+      <Markers clusters={clusters} />
     </MapContainer>
   );
 };
