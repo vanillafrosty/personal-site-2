@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useMap } from "react-leaflet/hooks";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import iconMap from "../utils/iconMap";
+import "../stylesheets/map.scss";
 
-const Map = ({ onMarkerClick, recenterPos }) => {
+const Map = ({ onMarkerClick }) => {
   const [markers, setMarkers] = useState([]);
+  const [currentMarker, setCurrentMarker] = useState({});
 
   const loadData = async () => {
     const { markers } = await import("../data/markers.json");
@@ -15,15 +16,28 @@ const Map = ({ onMarkerClick, recenterPos }) => {
     loadData();
   }, []);
 
-  function GetZoom({ recenterPos }) {
+  function RecenterButton({ currentMarker }) {
     const map = useMap();
 
-    if (recenterPos.lat && recenterPos.long) {
-      const zoom = map.getZoom();
-      map.setView([recenterPos.lat, recenterPos.long], zoom);
-    }
+    const recenter = () => {
+      if (currentMarker?.geometry) {
+        const zoom = map.getZoom();
+        map.setView(currentMarker.geometry.coordinates, zoom);
+      }
+    };
 
-    return null;
+    return (
+      (currentMarker?.geometry && (
+        <div
+          onClick={recenter}
+          className="marker-floater bg-zinc-50 drop-shadow-md rounded-md"
+          title="Snap to current marker"
+        >
+          <i className="fa-solid fa-location-dot px-2 py-4"></i>
+        </div>
+      )) ||
+      null
+    );
   }
 
   return (
@@ -33,11 +47,11 @@ const Map = ({ onMarkerClick, recenterPos }) => {
       zoom={12}
       scrollWheelZoom={true}
     >
-      <GetZoom recenterPos={recenterPos} />
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
+      <RecenterButton currentMarker={currentMarker} />
       {markers.map((el) => (
         <Marker
           key={el.id}
@@ -46,6 +60,7 @@ const Map = ({ onMarkerClick, recenterPos }) => {
           eventHandlers={{
             click: () => {
               onMarkerClick(el);
+              setCurrentMarker(el);
             },
           }}
           style={{

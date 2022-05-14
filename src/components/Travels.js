@@ -25,7 +25,6 @@ const TravelsPage = () => {
   const [images, setImages] = useState({});
   const { width } = useWindowDimensions();
   const [currentImages, setCurrentImages] = useState({});
-  const [recenterPos, setRecenterPos] = useState({});
   const [address, setAddress] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -51,42 +50,22 @@ const TravelsPage = () => {
     }
   }, [copied]);
 
-  const recenter = () => {
-    if (info.id) {
-      setRecenterPos({
-        lat: info.geometry.coordinates[0],
-        long: info.geometry.coordinates[1],
-      });
-    }
-  };
-
   const onMarkerClick = (data) => {
     setInfo(data);
-    setRecenterPos({});
   };
 
   return (
     <div className="overflow-hidden map-container">
-      <Map onMarkerClick={onMarkerClick} recenterPos={recenterPos} />
+      <Map onMarkerClick={onMarkerClick} />
       <div className="menu-floater bg-zinc-50 rounded-md py-1 pr-1 pl-2.5">
         <div className="flex font-bold text-3xl items-center">
           <div className="mr-1">Woo Food</div>
         </div>
         <Burger />
       </div>
-      {info.id && (
-        <div
-          onClick={recenter}
-          className="marker-floater bg-zinc-50 drop-shadow-md rounded-md"
-          title="Snap to current marker"
-        >
-          <i className="fa-solid fa-location-dot fa-lg px-2 py-4"></i>
-        </div>
-      )}
       <div
         onClick={() => {
           setClicked(true);
-          setRecenterPos({});
         }}
         className={cs(
           "overlay-min",
