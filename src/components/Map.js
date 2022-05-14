@@ -1,7 +1,13 @@
 import L from "leaflet";
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import { useMap, useMapEvents } from "react-leaflet/hooks";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
 import useSwr from "swr";
 import useSupercluster from "use-supercluster";
 import iconMap from "../utils/iconMap";
