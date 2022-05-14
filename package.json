@@ -15,6 +15,9 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "sass": "^1.51.0",
+    "supercluster": "^7.0.0",
+    "swr": "^1.3.0",
+    "use-supercluster": "^0.2.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
