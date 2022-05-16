@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import cs from "classnames";
-import "../../stylesheets/carousel.scss";
+import "../../stylesheets/Carousel.scss";
 
 const Carousel = ({ currentImages }) => {
   const currentImagesKeys = Object.keys(currentImages);

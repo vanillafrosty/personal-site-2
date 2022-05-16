@@ -10,6 +10,7 @@ import {
 } from "react-leaflet";
 import Supercluster from "supercluster";
 import iconMap from "../utils/iconMap";
+import { calcRating } from "../utils/rating";
 import "../stylesheets/supercluster.scss";
 import "../stylesheets/map.scss";
 
@@ -184,7 +185,21 @@ const Map = ({ onMarkerClick }) => {
           }}
         >
           <Tooltip direction="bottom" offset={[0, 0]} opacity={1} permanent>
-            {marker.properties.name}
+            <div className="tooltip-body">
+              <div className="text-center">{marker.properties.name}</div>
+              <div className="tooltip-ratings">
+                <>
+                  <i data-star={calcRating(marker.properties.rating)}></i>
+                  <span className="ml-1 mr-1">
+                    ({calcRating(marker.properties.rating)})
+                  </span>
+                  <span className="mr-1">&#x2022;</span>
+                </>
+                {[...Array(marker.properties.price)].map((e, index) => (
+                  <i key={index} className="fa-solid fa-dollar-sign"></i>
+                ))}
+              </div>
+            </div>
           </Tooltip>
         </Marker>
       );
