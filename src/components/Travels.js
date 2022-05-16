@@ -4,7 +4,6 @@ import cs from "classnames";
 import { calcRating } from "../utils/rating";
 import Burger from "./helper/Burger";
 import Carousel from "./helper/Carousel";
-import useWindowDimensions from "../utils/windowResize";
 import "../stylesheets/stars.scss";
 import "../stylesheets/Travels.scss";
 
@@ -28,7 +27,6 @@ const TravelsPage = () => {
     geometry: { coordinates: [] },
   });
   const [images, setImages] = useState({});
-  const { width } = useWindowDimensions();
   const [currentImages, setCurrentImages] = useState({});
   const [address, setAddress] = useState("");
   const [copied, setCopied] = useState(false);
@@ -57,6 +55,7 @@ const TravelsPage = () => {
 
   const onMarkerClick = (data) => {
     setInfo(data);
+    setClicked(true);
   };
 
   return (
@@ -67,27 +66,6 @@ const TravelsPage = () => {
           <div className="mr-1">Woo Food</div>
         </div>
         <Burger />
-      </div>
-      <div
-        onClick={() => {
-          setClicked(true);
-        }}
-        className={cs(
-          "overlay-min",
-          "mb-14 micro:mb-16 cursor-pointer rounded-md text-xl font-bold hover:bg-slate-900 hover:text-white",
-          {
-            "z-hidden": !clicked,
-            "z-regular": info.properties.name,
-          }
-        )}
-        style={{
-          marginLeft: (width - 512) / 2,
-          marginRight: (width - 512) / 2,
-        }}
-      >
-        <div className="my-4 mx-6 text-center title-ellipsis">
-          {info.properties.name}
-        </div>
       </div>
       <div
         className={`overlay-max overflow-y-auto rounded ${
