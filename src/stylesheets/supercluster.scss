@@ -12,7 +12,7 @@
 
 .markerClusterSmall {
   border-radius: 20px;
-  font-size: 0.6vw;
+  font-size: 0.875rem;
   color: #fff;
   font-weight: 900;
   font-family: Open Sans;
@@ -40,6 +40,7 @@
 }
 
 .markerClusterSmallDivThree {
+  position: absolute;
   width: 3.5em;
   height: 3.5em;
   border-radius: 4.5em;
@@ -49,6 +50,7 @@
 }
 
 .markerClusterSmallDivFour {
+  position: absolute;
   width: 2em;
   height: 2em;
   border-radius: 3em;
@@ -58,6 +60,7 @@
 }
 
 .markerClusterSmallLabel {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +68,7 @@
 
 .markerClusterMedium {
   border-radius: 40px;
-  font-size: 0.6vw;
+  font-size: 1.25rem;
   color: #fff;
   font-weight: 900;
   font-family: Open Sans;
@@ -118,7 +121,7 @@
 
 .markerClusterLarge {
   border-radius: 70px;
-  font-size: 0.6vw;
+  font-size: 1.75rem;
   color: #fff;
   font-weight: 900;
   font-family: Open Sans;
@@ -172,7 +175,7 @@
 
 .markerClusterLargeXL {
   border-radius: 70px;
-  font-size: 0.6vw;
+  font-size: 2.4rem;
   color: #fff;
   font-weight: 900;
   font-family: Open Sans;
