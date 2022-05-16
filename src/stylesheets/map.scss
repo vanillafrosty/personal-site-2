@@ -12,3 +12,12 @@
     vertical-align: -0.075em;
   }
 }
+
+.tooltip-body {
+  font-family: Raleway;
+  font-size: 0.8rem;
+  [data-star] {
+    font-size: 0.6rem;
+    place-self: center;
+  }
+}

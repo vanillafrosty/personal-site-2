@@ -14,7 +14,12 @@
         "type": ["Restaurant"],
         "price": 2,
         "latitude": 32.763022559621966,
-        "longitude": -117.13063587080245
+        "longitude": -117.13063587080245,
+        "rating": {
+          "portionSize": 4.5,
+          "ambience": 4.2,
+          "taste": 4.25
+        }
       },
       "geometry": {
         "type": "Point",
@@ -35,7 +40,12 @@
         "type": ["Restaurant", "Marketplace"],
         "price": 2,
         "latitude": 32.8398052313514,
-        "longitude": -117.27631336345621
+        "longitude": -117.27631336345621,
+        "rating": {
+          "portionSize": 3,
+          "ambience": 4.5,
+          "taste": 4.4
+        }
       },
       "geometry": {
         "type": "Point",
@@ -56,7 +66,12 @@
         "type": ["Restaurant"],
         "price": 2,
         "latitude": 32.843399194623174,
-        "longitude": -117.27497428738387
+        "longitude": -117.27497428738387,
+        "rating": {
+          "portionSize": 4.6,
+          "ambience": 4.2,
+          "taste": 4.4
+        }
       },
       "geometry": {
         "type": "Point",

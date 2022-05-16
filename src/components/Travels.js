@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import Map from "./Map";
 import cs from "classnames";
-import "../stylesheets/Travels.scss";
+import { calcRating } from "../utils/rating";
 import Burger from "./helper/Burger";
 import Carousel from "./helper/Carousel";
 import useWindowDimensions from "../utils/windowResize";
+import "../stylesheets/stars.scss";
+import "../stylesheets/Travels.scss";
 
 const makeAddress = (options) => {
   if (!options.address) {
@@ -125,34 +127,25 @@ const TravelsPage = () => {
             </div>
           </i>
         </div>
-        <div className="mt-1 text-center">
-          {[...Array(info.properties.price)].map((e, index) => (
-            <i key={index} className="fa-solid fa-dollar-sign"></i>
-          ))}
+        <div className="mt-1 text-center flex justify-center">
+          {info.properties.rating && (
+            <>
+              <i data-star={calcRating(info.properties.rating)}></i>
+              <span className="ml-1 mr-1">
+                ({calcRating(info.properties.rating)})
+              </span>
+              <span className="mr-1">&#x2022;</span>
+            </>
+          )}
+          <div>
+            {[...Array(info.properties.price)].map((e, index) => (
+              <i key={index} className="fa-solid fa-dollar-sign"></i>
+            ))}
+          </div>
         </div>
         <Carousel currentImages={currentImages} />
         <div className="w-9/12 md:w-144 mt-12 mx-auto text-justify">
           {info.properties.logline}
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf asdfasdfadfadfasdfasdf
-          asdfasdfadfadfasdfasdf
         </div>
       </div>
     </div>
