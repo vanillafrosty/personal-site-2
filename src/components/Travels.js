@@ -70,10 +70,10 @@ const TravelsPage = () => {
             <i className="fa-solid fa-angles-down mt-1.5"></i>
           </div>
         </div>
-        <div className="my-4 mx-6 text-center text-xl font-bold title-wrap">
+        <div className="my-4 mx-6 text-center font-bold title-wrap">
           {info.properties.name}
         </div>
-        <div className="text-center text-base">
+        <div className="address-container">
           {address}
           {"  "}
           <i
@@ -93,7 +93,7 @@ const TravelsPage = () => {
             </div>
           </i>
         </div>
-        <div className="mt-1 text-center flex justify-center">
+        <div className="ratings-container mt-1 flex justify-center">
           {info.properties.rating && (
             <>
               <i data-star={calcRating(info.properties.rating)}></i>
@@ -110,7 +110,7 @@ const TravelsPage = () => {
           </div>
         </div>
         <Carousel markerId={info.properties.id} />
-        <div className="w-9/12 md:w-144 mt-12 mx-auto text-justify">
+        <div className="description-container w-9/12 md:w-144 mt-12 mx-auto text-justify">
           {info.properties.logline}
         </div>
       </div>

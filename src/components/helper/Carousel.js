@@ -1,37 +1,8 @@
 import { useState, useEffect } from "react";
 import cs from "classnames";
 import { data } from "../../data/images";
+import LoadingImage from "./LoadingImage";
 import "../../stylesheets/Carousel.scss";
-import "../../stylesheets/spinner.scss";
-
-const LoadingImage = ({ currentImage }) => {
-  const [loading, setLoading] = useState(true);
-  return (
-    <>
-      <div
-        className="loader-spinner-container"
-        style={{ display: loading ? "" : "none" }}
-      >
-        <svg className="loader-spinner" viewBox="0 0 50 50">
-          <circle
-            className="path"
-            cx="25"
-            cy="25"
-            r="20"
-            fill="none"
-            strokeWidth="5"
-          ></circle>
-        </svg>
-      </div>
-
-      <img
-        src={process.env.PUBLIC_URL + currentImage}
-        onLoad={() => setLoading(false)}
-        style={{ display: loading ? "none" : "" }}
-      />
-    </>
-  );
-};
 
 const Carousel = ({ markerId }) => {
   const [images, setImages] = useState([]);

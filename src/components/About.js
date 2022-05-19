@@ -1,14 +1,17 @@
 import dwuPic from "../assets/images/dwu-san-diego.jpg";
-// import issue1 from "../assets/images/known-issues-1.png";
+import LoadingImage from "./helper/LoadingImage";
+import "../stylesheets/About.scss";
 
 const AboutPage = () => {
   return (
-    <div className="mt-10 mx-auto max-w-128 flex flex-col items-center border border-solid rounded-sm bg-white">
-      <img
-        src={dwuPic}
-        className="w-1/2 md:w-96 lg:w-96 2xl:w-104 rounded-lg mt-10"
-        alt="Me"
-      />
+    <div className="about-container mt-10 mx-auto max-w-128 flex flex-col items-center border border-solid rounded-sm bg-white">
+      <div className="w-1/2 md:w-96 lg:w-96 2xl:w-104 mt-10">
+        <LoadingImage
+          currentImage={dwuPic}
+          alt="Me"
+          classNames={{ img: "w-full rounded-lg" }}
+        />
+      </div>
       <div className="text-justify mx-8">
         <div className="mt-8 mb-8">Welcome! My name is David.</div>
         <div className="mt-8 mb-8">
