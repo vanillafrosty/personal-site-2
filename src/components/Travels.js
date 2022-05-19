@@ -26,29 +26,17 @@ const TravelsPage = () => {
     properties: {},
     geometry: { coordinates: [] },
   });
-  const [images, setImages] = useState({});
-  const [currentImages, setCurrentImages] = useState({});
   const [address, setAddress] = useState("");
-  const [copied, setCopied] = useState(false);
-
-  const loadImages = async () => {
-    const data = await import("../data/images");
-    setImages(data.data);
-  };
+  const [copied, setCopied] = useState(null);
 
   useEffect(() => {
-    loadImages();
-  }, []);
-
-  useEffect(() => {
-    if (images[info.properties.id]) {
-      setCurrentImages(images[info.properties.id]);
+    if (info.properties.id) {
       setAddress(makeAddress(info.properties));
     }
-  }, [info, images]);
+  }, [info]);
 
   useEffect(() => {
-    if (!copied) {
+    if (copied !== null && !copied) {
       setCopied(true);
     }
   }, [copied]);
@@ -121,7 +109,7 @@ const TravelsPage = () => {
             ))}
           </div>
         </div>
-        <Carousel currentImages={currentImages} />
+        <Carousel markerId={info.properties.id} />
         <div className="w-9/12 md:w-144 mt-12 mx-auto text-justify">
           {info.properties.logline}
         </div>

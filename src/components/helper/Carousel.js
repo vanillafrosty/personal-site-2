@@ -1,20 +1,52 @@
 import { useState, useEffect } from "react";
 import cs from "classnames";
+import { data } from "../../data/images";
 import "../../stylesheets/Carousel.scss";
+import "../../stylesheets/spinner.scss";
 
-const Carousel = ({ currentImages }) => {
-  const currentImagesKeys = Object.keys(currentImages);
+const LoadingImage = ({ currentImage }) => {
+  const [loading, setLoading] = useState(true);
+  return (
+    <>
+      <div
+        className="loader-spinner-container"
+        style={{ display: loading ? "" : "none" }}
+      >
+        <svg className="loader-spinner" viewBox="0 0 50 50">
+          <circle
+            className="path"
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            strokeWidth="5"
+          ></circle>
+        </svg>
+      </div>
+
+      <img
+        src={process.env.PUBLIC_URL + currentImage}
+        onLoad={() => setLoading(false)}
+        style={{ display: loading ? "none" : "" }}
+      />
+    </>
+  );
+};
+
+const Carousel = ({ markerId }) => {
+  const [images, setImages] = useState([]);
   const [activeCard, setActiveCard] = useState(0);
 
   useEffect(() => {
+    setImages(data[markerId]);
     setActiveCard(0);
-  }, [currentImages]);
+  }, [markerId]);
 
   const clickLeft = () => {
-    if (currentImagesKeys.length) {
+    if (images.length) {
       setActiveCard((prevActive) => {
         if (prevActive === 0) {
-          return currentImagesKeys.length - 1;
+          return images.length - 1;
         } else {
           return prevActive - 1;
         }
@@ -23,10 +55,8 @@ const Carousel = ({ currentImages }) => {
   };
 
   const clickRight = () => {
-    if (currentImagesKeys.length) {
-      setActiveCard(
-        (prevActive) => (prevActive + 1) % currentImagesKeys.length
-      );
+    if (images.length) {
+      setActiveCard((prevActive) => (prevActive + 1) % images.length);
     }
   };
 
@@ -44,23 +74,23 @@ const Carousel = ({ currentImages }) => {
       >
         <i className="fa-solid fa-chevron-right p-3 bg-slate-400 text-white rounded-md"></i>
       </div>
-      {currentImagesKeys.map((el, i) => (
-        <div
-          key={el}
-          onClick={() => setActiveCard(i)}
-          className={cs("carousel-card w-5/12 lg:w-35p xl:w-1/3 2xl:w-30p", {
-            "card-active": i === activeCard,
-            "card-inactive-left":
-              (i + 1) % currentImagesKeys.length === activeCard,
-            "card-inactive-right":
-              activeCard === currentImagesKeys.length - 1
-                ? i === 0
-                : i - 1 === activeCard,
-          })}
-        >
-          <img src={currentImages[el]} />
-        </div>
-      ))}
+      {images &&
+        images.map((el, i) => (
+          <div
+            key={el}
+            onClick={() => setActiveCard(i)}
+            className={cs("carousel-card w-5/12 lg:w-35p xl:w-1/3 2xl:w-30p", {
+              "card-active": i === activeCard,
+              "card-inactive-left": (i + 1) % images.length === activeCard,
+              "card-inactive-right":
+                activeCard === images.length - 1
+                  ? i === 0
+                  : i - 1 === activeCard,
+            })}
+          >
+            <LoadingImage currentImage={el} />
+          </div>
+        ))}
     </div>
   );
 };
