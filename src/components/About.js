@@ -19,16 +19,17 @@ const AboutPage = () => {
           2022 onward, when this site was created.
         </div>
         <div className="mt-8 mb-4">
-          I coded this site from scratch. You can support me below with a
-          donation to help me maintain and improve the site, as well as find
-          more time to explore and review food.
+          I coded this site from scratch, and at the moment it's constantly
+          updated and maintained. You can support me below with a donation to
+          help me maintain and improve the site, as well as find more time to
+          explore and review food.
         </div>
         <div className="text-center mb-10">
           <a
             className="block w-11/12 mt-5 mx-auto bg-red-400 p-3 rounded text-white text-lg font-bold"
             href="https://ko-fi.com/woofood"
           >
-            Support me on Kofi
+            Give me money
           </a>
         </div>
         {/* <div className="mt-8 mb-10">

@@ -4,7 +4,7 @@ import { data } from "../../data/images";
 import LoadingImage from "./LoadingImage";
 import "../../stylesheets/Carousel.scss";
 
-const Carousel = ({ markerId }) => {
+const Carousel = ({ markerId, openModal }) => {
   const [images, setImages] = useState([]);
   const [activeCard, setActiveCard] = useState(0);
 
@@ -59,7 +59,11 @@ const Carousel = ({ markerId }) => {
                   : i - 1 === activeCard,
             })}
           >
-            <LoadingImage currentImage={el} />
+            <LoadingImage
+              currentImage={el}
+              isActive={i === activeCard}
+              openModal={openModal}
+            />
           </div>
         ))}
     </div>

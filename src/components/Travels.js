@@ -28,6 +28,8 @@ const TravelsPage = () => {
   });
   const [address, setAddress] = useState("");
   const [copied, setCopied] = useState(null);
+  const [modal, setModal] = useState(false);
+  const [modalImgPath, setModalImgPath] = useState("");
 
   useEffect(() => {
     if (info.properties.id) {
@@ -46,6 +48,11 @@ const TravelsPage = () => {
     setClicked(true);
   };
 
+  const openModal = (imgPath) => {
+    setModal(true);
+    setModalImgPath(imgPath);
+  };
+
   return (
     <div className="overflow-hidden map-container">
       <Map onMarkerClick={onMarkerClick} />
@@ -54,6 +61,13 @@ const TravelsPage = () => {
           <div className="mr-1">Woo Food</div>
         </div>
         <Burger />
+      </div>
+      <div
+        className="modal-container"
+        style={{ display: modal && modalImgPath ? "" : "none" }}
+        onClick={() => setModal(false)}
+      >
+        <img src={process.env.PUBLIC_URL + modalImgPath} />
       </div>
       <div
         className={`overlay-max overflow-y-auto rounded ${
@@ -109,7 +123,7 @@ const TravelsPage = () => {
             ))}
           </div>
         </div>
-        <Carousel markerId={info.properties.id} />
+        <Carousel markerId={info.properties.id} openModal={openModal} />
         <div className="description-container w-9/12 md:w-144 mt-12 mx-auto text-justify">
           {info.properties.logline}
         </div>
