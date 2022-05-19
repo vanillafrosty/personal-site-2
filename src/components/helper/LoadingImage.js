@@ -3,8 +3,15 @@ import cs from "classnames";
 import PropTypes from "prop-types";
 import "../../stylesheets/spinner.scss";
 
-const LoadingImage = ({ currentImage, classNames, alt }) => {
+const LoadingImage = ({
+  currentImage,
+  classNames,
+  alt,
+  isActive,
+  openModal,
+}) => {
   const [loading, setLoading] = useState(true);
+
   return (
     <>
       <div
@@ -29,6 +36,11 @@ const LoadingImage = ({ currentImage, classNames, alt }) => {
         onLoad={() => setLoading(false)}
         style={{ display: loading ? "none" : "" }}
         alt={alt}
+        onClick={() => {
+          if (isActive) {
+            openModal(process.env.PUBLIC_URL + currentImage);
+          }
+        }}
       />
     </>
   );
@@ -38,6 +50,7 @@ LoadingImage.propTypes = {
   currentImage: PropTypes.string.isRequired,
   classNames: PropTypes.shape({}),
   alt: PropTypes.string,
+  isActive: PropTypes.bool,
 };
 
 LoadingImage.defaultProps = {
