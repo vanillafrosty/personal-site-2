@@ -1,45 +1,123 @@
 /* raleway-regular - latin */
 @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../assets/fonts/raleway-v22-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-        url('../assets/fonts/raleway-v22-latin-regular.woff') format('woff'), /* Modern Browsers */
-        url('../assets/fonts/raleway-v22-latin-regular.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/raleway/raleway-v22-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../assets/fonts/raleway/raleway-v22-latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */
+      url("../assets/fonts/raleway/raleway-v22-latin-regular.ttf")
+      format("truetype"); /* Safari, Android, iOS */
 }
 /* raleway-500 - latin */
 @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 500;
-    src: url('../assets/fonts/raleway-v22-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
-        url('../assets/fonts/raleway-v22-latin-500.woff') format('woff'), /* Modern Browsers */
-        url('../assets/fonts/raleway-v22-latin-500.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/raleway/raleway-v22-latin-500.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../assets/fonts/raleway/raleway-v22-latin-500.woff") format("woff"),
+    /* Modern Browsers */
+      url("../assets/fonts/raleway/raleway-v22-latin-500.ttf")
+      format("truetype"); /* Safari, Android, iOS */
 }
 /* raleway-600 - latin */
 @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 600;
-    src: url('../assets/fonts/raleway-v22-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
-        url('../assets/fonts/raleway-v22-latin-600.woff') format('woff'), /* Modern Browsers */
-        url('../assets/fonts/raleway-v22-latin-600.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../assets/fonts/raleway/raleway-v22-latin-600.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../assets/fonts/raleway/raleway-v22-latin-600.woff") format("woff"),
+    /* Modern Browsers */
+      url("../assets/fonts/raleway/raleway-v22-latin-600.ttf")
+      format("truetype"); /* Safari, Android, iOS */
 }
 /* raleway-700 - latin */
 @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 700;
-    src: url('../assets/fonts/raleway-v22-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-        url('../assets/fonts/raleway-v22-latin-700.woff') format('woff'), /* Modern Browsers */
-        url('../assets/fonts/raleway-v22-latin-700.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/raleway/raleway-v22-latin-700.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../assets/fonts/raleway/raleway-v22-latin-700.woff") format("woff"),
+    /* Modern Browsers */
+      url("../assets/fonts/raleway/raleway-v22-latin-700.ttf")
+      format("truetype"); /* Safari, Android, iOS */
 }
 /* raleway-800 - latin */
 @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 800;
-    src: url('../assets/fonts/raleway-v22-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
-        url('../assets/fonts/raleway-v22-latin-800.woff') format('woff'), /* Modern Browsers */
-        url('../assets/fonts/raleway-v22-latin-800.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../assets/fonts/raleway/raleway-v22-latin-800.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../assets/fonts/raleway/raleway-v22-latin-800.woff") format("woff"),
+    /* Modern Browsers */
+      url("../assets/fonts/raleway/raleway-v22-latin-800.ttf")
+      format("truetype"); /* Safari, Android, iOS */
+}
+
+/* source-sans-pro-regular - latin */
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/source-sans-pro/source-sans-pro-v21-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../assets/fonts/source-sans-pro/source-sans-pro-v21-latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */
+      url("../assets/fonts/source-sans-pro/source-sans-pro-v21-latin-regular.ttf")
+      format("truetype"); /* Safari, Android, iOS */
+}
+/* source-sans-pro-600 - latin */
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../assets/fonts/source-sans-pro/source-sans-pro-v21-latin-600.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../assets/fonts/source-sans-pro/source-sans-pro-v21-latin-600.woff")
+      format("woff"),
+    /* Modern Browsers */
+      url("../assets/fonts/source-sans-pro/source-sans-pro-v21-latin-600.ttf")
+      format("truetype"); /* Safari, Android, iOS */
+}
+/* source-sans-pro-700 - latin */
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/source-sans-pro/source-sans-pro-v21-latin-700.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../assets/fonts/source-sans-pro/source-sans-pro-v21-latin-700.woff")
+      format("woff"),
+    /* Modern Browsers */
+      url("../assets/fonts/source-sans-pro/source-sans-pro-v21-latin-700.ttf")
+      format("truetype"); /* Safari, Android, iOS */
+}
+/* source-sans-pro-900 - latin */
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../assets/fonts/source-sans-pro/source-sans-pro-v21-latin-900.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../assets/fonts/source-sans-pro/source-sans-pro-v21-latin-900.woff")
+      format("woff"),
+    /* Modern Browsers */
+      url("../assets/fonts/source-sans-pro/source-sans-pro-v21-latin-900.ttf")
+      format("truetype"); /* Safari, Android, iOS */
 }
