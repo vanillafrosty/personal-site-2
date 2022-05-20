@@ -29,7 +29,7 @@ const AboutPage = () => {
             className="block w-11/12 mt-5 mx-auto bg-red-400 p-3 rounded text-white text-lg font-bold"
             href="https://ko-fi.com/woofood"
           >
-            Give me money
+            Toss me a few bucks
           </a>
         </div>
         {/* <div className="mt-8 mb-10">
