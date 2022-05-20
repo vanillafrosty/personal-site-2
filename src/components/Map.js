@@ -93,10 +93,10 @@ const Map = ({ onMarkerClick }) => {
     useEffect(() => {
       const bounds = map.getBounds();
       updateBounds([
-        bounds.getWest(),
-        bounds.getSouth(),
-        bounds.getEast(),
-        bounds.getNorth(),
+        bounds.getWest() - 0.028,
+        bounds.getSouth() - 0.02,
+        bounds.getEast() + 0.028,
+        bounds.getNorth() + 0.02,
       ]);
     }, []);
 
@@ -135,10 +135,10 @@ const Map = ({ onMarkerClick }) => {
           const bounds = map.getBounds();
           const newPointers = index.getClusters(
             [
-              bounds.getWest(),
-              bounds.getSouth(),
-              bounds.getEast(),
-              bounds.getNorth(),
+              bounds.getWest() - 0.028,
+              bounds.getSouth() - 0.02,
+              bounds.getEast() + 0.028,
+              bounds.getNorth() + 0.02,
             ],
             map.getZoom()
           );
