@@ -11,6 +11,7 @@ import {
 import Supercluster from "supercluster";
 import iconMap from "../utils/iconMap";
 import { calcRating } from "../utils/rating";
+import isEqual from "lodash/isEqual";
 import "../stylesheets/supercluster.scss";
 import "../stylesheets/map.scss";
 
@@ -132,17 +133,18 @@ const Map = ({ onMarkerClick }) => {
       moveend: () => {
         if (index) {
           const bounds = map.getBounds();
-          setMarkers(
-            index.getClusters(
-              [
-                bounds.getWest(),
-                bounds.getSouth(),
-                bounds.getEast(),
-                bounds.getNorth(),
-              ],
-              map.getZoom()
-            )
+          const newPointers = index.getClusters(
+            [
+              bounds.getWest(),
+              bounds.getSouth(),
+              bounds.getEast(),
+              bounds.getNorth(),
+            ],
+            map.getZoom()
           );
+          if (!isEqual(newPointers, markers)) {
+            setMarkers(newPointers);
+          }
         }
       },
     });
