@@ -186,7 +186,13 @@ const Map = ({ onMarkerClick }) => {
             },
           }}
         >
-          <Tooltip direction="bottom" offset={[0, 0]} opacity={1} permanent>
+          <Tooltip
+            direction="bottom"
+            offset={[0, 0]}
+            opacity={1}
+            permanent
+            interactive
+          >
             <div className="tooltip-body">
               <div className="text-center">{marker.properties.name}</div>
               <div className="tooltip-ratings">

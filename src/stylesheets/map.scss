@@ -13,6 +13,17 @@
   }
 }
 
+.leaflet-tooltip-pane {
+  // z-index: 575;
+}
+
+.leaflet-tooltip {
+  pointer-events: auto;
+  cursor: pointer;
+  padding: 0.125rem 0.175rem;
+  border: none;
+}
+
 .tooltip-body {
   font-family: "Source Sans Pro";
   text-align: center;
