@@ -20,14 +20,22 @@
 .leaflet-tooltip {
   pointer-events: auto;
   cursor: pointer;
-  padding: 0.125rem 0.175rem;
+  padding: 0.125rem 0.2rem;
   border: none;
+}
+
+.leaflet-tooltip-bottom {
+  margin-top: 4px;
+  &:before {
+    margin-top: -10px;
+  }
 }
 
 .tooltip-body {
   font-family: "Source Sans Pro";
   text-align: center;
   font-size: 0.8rem;
+  line-height: 1.065rem;
   [data-star] {
     font-size: 0.6rem;
     place-self: center;
