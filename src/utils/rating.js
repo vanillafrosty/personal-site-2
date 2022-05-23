@@ -8,7 +8,7 @@ const calcRating = (ratings) => {
     (prev, curr) => weights[curr] * ratings[curr] + prev,
     0
   );
-  return Math.round(avg * 10) / 10;
+  return avg.toFixed(1);
 };
 
 export { calcRating };
