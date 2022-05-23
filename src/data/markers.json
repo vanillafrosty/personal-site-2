@@ -17,8 +17,8 @@
         "longitude": -117.13063587080245,
         "rating": {
           "portionSize": 4.5,
-          "ambience": 4.2,
-          "taste": 4.25
+          "ambience": 4.3,
+          "taste": 4.3
         }
       },
       "geometry": {
@@ -68,8 +68,8 @@
         "latitude": 32.843399194623174,
         "longitude": -117.27497428738387,
         "rating": {
-          "portionSize": 4.6,
-          "ambience": 4.2,
+          "portionSize": 4.55,
+          "ambience": 4.25,
           "taste": 4.4
         }
       },
@@ -120,7 +120,7 @@
         "latitude": 33.47522622540826,
         "longitude": -117.1207924711793,
         "rating": {
-          "portionSize": 4.7,
+          "portionSize": 4.65,
           "ambience": 4.4,
           "taste": 4.6
         }
@@ -147,7 +147,7 @@
         "longitude": -117.14048263153693,
         "rating": {
           "portionSize": 4.7,
-          "ambience": 4.15,
+          "ambience": 4.05,
           "taste": 4
         }
       },
@@ -172,7 +172,7 @@
         "latitude": 32.727880248929914,
         "longitude": -117.17121310422749,
         "rating": {
-          "portionSize": 4.55,
+          "portionSize": 4.5,
           "ambience": 4.5,
           "taste": 4.5
         }
@@ -198,7 +198,7 @@
         "latitude": 32.727538644464204,
         "longitude": -117.17122910053077,
         "rating": {
-          "portionSize": 4.1,
+          "portionSize": 4,
           "ambience": 4.65,
           "taste": 4.15
         }
@@ -232,6 +232,58 @@
       "geometry": {
         "type": "Point",
         "coordinates": [-117.154894638572127, 32.82407199354855]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 10,
+        "name": "Trust",
+        "logline": "New American fare in an open space with high ceilings.",
+        "address": "3752 Park Blvd",
+        "city": "San Diego",
+        "state": "CA",
+        "country": "USA",
+        "zipCode": 92103,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 32.746535357261266,
+        "longitude": -117.146583302089,
+        "rating": {
+          "portionSize": 4.2,
+          "ambience": 4.7,
+          "taste": 4.6
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.146583302089, 32.746535357261266]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 11,
+        "name": "Bear Buns Bakery",
+        "logline": "Small, cozy spot for rustic breakfast bites.",
+        "address": "3251 Greyling Dr",
+        "city": "San Diego",
+        "state": "CA",
+        "country": "USA",
+        "zipCode": 92123,
+        "type": ["Restaurant"],
+        "price": 1,
+        "latitude": 32.8019889990642,
+        "longitude": -117.1396650020878,
+        "rating": {
+          "portionSize": 4.1,
+          "ambience": 4.15,
+          "taste": 4.1
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.1396650020878, 32.8019889990642]
       }
     }
   ]
