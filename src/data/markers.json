@@ -285,6 +285,84 @@
         "type": "Point",
         "coordinates": [-117.1396650020878, 32.8019889990642]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 12,
+        "name": "Cocina de Barrio",
+        "logline": "Hip spot for drinks and Mexican food.",
+        "address": "3707 Fifth Ave",
+        "city": "San Diego",
+        "state": "CA",
+        "country": "USA",
+        "zipCode": 92104,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 32.74525161788023,
+        "longitude": -117.16027679541888,
+        "rating": {
+          "portionSize": 4,
+          "ambience": 4.4,
+          "taste": 4.25
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.16027679541888, 32.74525161788023]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 13,
+        "name": "Tacqueria Franc",
+        "logline": "Lively, open spot for tacos.",
+        "address": "Blvrd Gral Rodolfo Sánchez Taboada 9257",
+        "city": "Zonaeste, 22010 Tijuana",
+        "state": "Baja California",
+        "country": "Mexico",
+        "zipCode": null,
+        "type": ["Restaurant"],
+        "price": 1,
+        "latitude": 32.52875288095878,
+        "longitude": -117.02756057319863,
+        "rating": {
+          "portionSize": 4.4,
+          "ambience": 4.45,
+          "taste": 4.65
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.02756057319863, 32.52875288095878]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 14,
+        "name": "Sushi By Bou",
+        "logline": "Compact space for omakase.",
+        "address": "132 W 47th St",
+        "city": "New York",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 10036,
+        "type": ["Restaurant"],
+        "price": 3,
+        "latitude": 40.75855445559572,
+        "longitude": -73.98320269224085,
+        "rating": {
+          "portionSize": 3,
+          "ambience": 3.5,
+          "taste": 4.875
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.98320269224085, 40.75855445559572]
+      }
     }
   ]
 }

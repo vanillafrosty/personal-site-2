@@ -49,6 +49,21 @@ const data = {
     "/assets/images/11/bear-buns-bakery-2-min.jpg",
     "/assets/images/11/bear-buns-bakery-3-min.jpg",
   ],
+  12: [
+    "/assets/images/12/cocina-de-barrio-1-min.jpg",
+    "/assets/images/12/cocina-de-barrio-2-min.jpg",
+    "/assets/images/12/cocina-de-barrio-3-min.jpg",
+  ],
+  13: [
+    "/assets/images/13/tacqueria-franc-1-min.jpg",
+    "/assets/images/13/tacqueria-franc-2-min.jpg",
+    "/assets/images/13/tacqueria-franc-3-min.jpg",
+  ],
+  14: [
+    "/assets/images/14/sushi-by-bou-1-min.jpg",
+    "/assets/images/14/sushi-by-bou-2-min.jpg",
+    "/assets/images/14/sushi-by-bou-3-min.jpg",
+  ],
 };
 
 export { data };
