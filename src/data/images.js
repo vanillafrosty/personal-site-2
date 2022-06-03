@@ -64,6 +64,66 @@ const data = {
     "/assets/images/14/sushi-by-bou-2-min.jpg",
     "/assets/images/14/sushi-by-bou-3-min.jpg",
   ],
+  15: [
+    "/assets/images/15/kabayan-1-min.jpg",
+    "/assets/images/15/kabayan-2-min.jpg",
+    "/assets/images/15/kabayan-3-min.jpg",
+  ],
+  16: [
+    "/assets/images/16/bricolage-1-min.jpg",
+    "/assets/images/16/bricolage-2-min.jpg",
+    "/assets/images/16/bricolage-3-min.jpg",
+  ],
+  17: [
+    "/assets/images/17/table-87-1-min.jpg",
+    "/assets/images/17/table-87-2-min.jpg",
+    "/assets/images/17/table-87-3-min.jpg",
+  ],
+  18: [
+    "/assets/images/18/tacos-don-gato-1-min.jpg",
+    "/assets/images/18/tacos-don-gato-2-min.jpg",
+    "/assets/images/18/tacos-don-gato-3-min.jpg",
+  ],
+  19: [
+    "/assets/images/19/westlight-1-min.jpg",
+    "/assets/images/19/westlight-2-min.jpg",
+    "/assets/images/19/westlight-3-min.jpg",
+  ],
+  20: [
+    "/assets/images/20/arabica-ny-roastery-1-min.jpg",
+    "/assets/images/20/arabica-ny-roastery-2-min.jpg",
+    "/assets/images/20/arabica-ny-roastery-3-min.jpg",
+  ],
+  21: [
+    "/assets/images/21/mias-brooklyn-bakery-1-min.jpg",
+    "/assets/images/21/mias-brooklyn-bakery-2-min.jpg",
+    "/assets/images/21/mias-brooklyn-bakery-3-min.jpg",
+  ],
+  22: [
+    "/assets/images/22/the-gatehouses-1-min.jpg",
+    "/assets/images/22/the-gatehouses-2-min.jpg",
+    "/assets/images/22/the-gatehouses-3-min.jpg",
+  ],
+  23: [
+    "/assets/images/23/timeout-market-1-min.jpg",
+    "/assets/images/23/timeout-market-2-min.jpg",
+    "/assets/images/23/timeout-market-3-min.jpg",
+  ],
+  24: [
+    "/assets/images/24/larina-pastificio-1-min.jpg",
+    "/assets/images/24/larina-pastificio-2-min.jpg",
+    "/assets/images/24/larina-pastificio-3-min.jpg",
+  ],
+  25: [
+    "/assets/images/25/anyway-cafe-1-min.jpg",
+    "/assets/images/25/anyway-cafe-2-min.jpg",
+    "/assets/images/25/anyway-cafe-3-min.jpg",
+  ],
+  26: [
+    "/assets/images/26/t-swirl-crepe-1-min.jpg",
+    "/assets/images/26/t-swirl-crepe-2-min.jpg",
+    "/assets/images/26/t-swirl-crepe-3-min.jpg",
+  ],
 };
 
 export { data };

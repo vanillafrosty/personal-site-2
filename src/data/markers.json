@@ -356,12 +356,324 @@
         "rating": {
           "portionSize": 3,
           "ambience": 3.5,
-          "taste": 4.875
+          "taste": 4.9
         }
       },
       "geometry": {
         "type": "Point",
         "coordinates": [-73.98320269224085, 40.75855445559572]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 15,
+        "name": "Kabayan Authentic",
+        "logline": "A spot for Filipino cuisine, including large group Kamayan feasts.",
+        "address": "49-12 Queens Blvd",
+        "city": "Queens",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 11377,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 40.742513035630864,
+        "longitude": -73.91546338002547,
+        "rating": {
+          "portionSize": 4.55,
+          "ambience": 4,
+          "taste": 4.6
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.91546338002547, 40.742513035630864]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 16,
+        "name": "Bricolage",
+        "logline": "Rustic spot with backyard for Vietnamese cuisine.",
+        "address": "162 5th Ave",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 11217,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 40.677915131478265,
+        "longitude": -73.97964632172159,
+        "rating": {
+          "portionSize": 4.3,
+          "ambience": 4.45,
+          "taste": 4.3
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.97964632172159, 40.677915131478265]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 17,
+        "name": "Table 87",
+        "logline": "Sit down spot for coal oven pizza by the pie.",
+        "address": "87 Atlantic Ave",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 11201,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 40.691268025000475,
+        "longitude": -73.99730930601197,
+        "rating": {
+          "portionSize": 4.55,
+          "ambience": 4.3,
+          "taste": 4.75
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.99730930601197, 40.691268025000475]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 18,
+        "name": "Tacos Don Gato",
+        "logline": "Food truck serving tacos and other Mexican fare.",
+        "address": "5410 5th Ave",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 11220,
+        "type": ["Restaurant"],
+        "price": 1,
+        "latitude": 40.642686511015526,
+        "longitude": -74.01293893206459,
+        "rating": {
+          "portionSize": 4.3,
+          "ambience": null,
+          "taste": 4.65
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.01293893206459, 40.642686511015526]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 19,
+        "name": "Westlight",
+        "logline": "Upscale rooftop bar with an amazing view of Manhattan.",
+        "address": "111 N 12th St",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 11249,
+        "type": ["Bar"],
+        "price": 2,
+        "latitude": 40.72220745672914,
+        "longitude": -73.95673516076158,
+        "rating": {
+          "portionSize": 4.3,
+          "ambience": 4.85,
+          "taste": 4.4
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.95673516076158, 40.72220745672914]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 20,
+        "name": "% ARABICA NEW YORK DUMBO ROASTERY",
+        "logline": "Lively cafe with pastries and coffee bean selection.",
+        "address": "20 Old Fulton St",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 11201,
+        "type": ["Cafe"],
+        "price": 1,
+        "latitude": 40.702604818122225,
+        "longitude": -73.99416142696441,
+        "rating": {
+          "portionSize": 4.2,
+          "ambience": 4.45,
+          "taste": 4.4
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.99416142696441, 40.702604818122225]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 21,
+        "name": "Mia's Brooklyn Bakery",
+        "logline": "Roomy cafe with a wide selection of baked goods.",
+        "address": "139 Smith St",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 11201,
+        "type": ["Cafe"],
+        "price": 1,
+        "latitude": 40.68706141224049,
+        "longitude": -73.99010693406106,
+        "rating": {
+          "portionSize": 4.4,
+          "ambience": 4.5,
+          "taste": 4.45
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.99010693406106, 40.68706141224049]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 22,
+        "name": "The Gatehouses",
+        "logline": "Bar attached to a distillery, with outdoor seating.",
+        "address": "299 Sands St",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 11205,
+        "type": ["Bar"],
+        "price": 2,
+        "latitude": 40.69963478657674,
+        "longitude": -73.9802458222533,
+        "rating": {
+          "portionSize": 4.2,
+          "ambience": 4.55,
+          "taste": 4.1
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9802458222533, 40.69963478657674]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 23,
+        "name": "Timeout Market",
+        "logline": "Waterfront spot for food and drinks with two floors facing Manhattan.",
+        "address": "55 Water St",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 11201,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 40.70341652019869,
+        "longitude": -73.99214033239508,
+        "rating": {
+          "portionSize": 4.25,
+          "ambience": 4.75,
+          "taste": 4.45
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.99214033239508, 40.70341652019869]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 24,
+        "name": "LaRina Pastificio & Vino",
+        "logline": "Lively, tasty spot for Italian fare and homemade pasta.",
+        "address": "387 Myrtle Ave",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 11205,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 40.69328138483692,
+        "longitude": -73.970414315045,
+        "rating": {
+          "portionSize": 4.5,
+          "ambience": 4.7,
+          "taste": 4.7
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.970414315045, 40.69328138483692]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 25,
+        "name": "Anyway Cafe",
+        "logline": "Cozy Russian bar with live music.",
+        "address": "34 E 2nd St",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 10003,
+        "type": ["Bar"],
+        "price": 2,
+        "latitude": 40.72512098666163,
+        "longitude": -73.99055123711196,
+        "rating": {
+          "portionSize": 4.3,
+          "ambience": 4.6,
+          "taste": 4.3
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.99055123711196, 40.72512098666163]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 26,
+        "name": "T-Swirl Crepe",
+        "logline": "Small spot for sweet and savory crepes.",
+        "address": "19 St Marks Pl",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 10003,
+        "type": ["Restaurant"],
+        "price": 1,
+        "latitude": 40.729177984612186,
+        "longitude": -73.98870352106597,
+        "rating": {
+          "portionSize": 4.5,
+          "ambience": 4,
+          "taste": 4.55
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.98870352106597, 40.729177984612186]
       }
     }
   ]
