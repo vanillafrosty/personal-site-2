@@ -1,15 +1,24 @@
 import { useState, useEffect } from "react";
 import cs from "classnames";
-import { data } from "../../data/images";
 import LoadingImage from "./LoadingImage";
 import "../../stylesheets/Carousel.scss";
 
 const Carousel = ({ markerId, openModal }) => {
+  const [allImages, setAllImages] = useState([]);
   const [images, setImages] = useState([]);
   const [activeCard, setActiveCard] = useState(0);
 
+  const loadData = async () => {
+    const images = await import("../../data/images.json");
+    setAllImages(images);
+  };
+
   useEffect(() => {
-    setImages(data[markerId]);
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    setImages(allImages[markerId - 1]);
     setActiveCard(0);
   }, [markerId]);
 

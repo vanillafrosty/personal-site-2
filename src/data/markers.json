@@ -82,7 +82,7 @@
       "type": "Feature",
       "properties": {
         "id": 4,
-        "name": "Cali's & Fries",
+        "name": "Cali's \u0026 Fries",
         "logline": "Cheap late night tacos and other Mexican food.",
         "address": "5150 Murphy Canyon Rd # 109",
         "city": "San Diego",
@@ -186,7 +186,7 @@
       "type": "Feature",
       "properties": {
         "id": 8,
-        "name": "Juniper & Ivy",
+        "name": "Juniper \u0026 Ivy",
         "logline": "Hip, lively spot for cocktails and small plates.",
         "address": "2228 Kettner Blvd",
         "city": "San Diego",
@@ -231,7 +231,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-117.154894638572127, 32.82407199354855]
+        "coordinates": [-117.15489463857213, 32.82407199354855]
       }
     },
     {
@@ -322,7 +322,7 @@
         "city": "Zonaeste, 22010 Tijuana",
         "state": "Baja California",
         "country": "Mexico",
-        "zipCode": null,
+        "zipCode": 0,
         "type": ["Restaurant"],
         "price": 1,
         "latitude": 32.52875288095878,
@@ -459,7 +459,7 @@
         "longitude": -74.01293893206459,
         "rating": {
           "portionSize": 4.3,
-          "ambience": null,
+          "ambience": 0,
           "taste": 4.65
         }
       },
@@ -602,7 +602,7 @@
       "type": "Feature",
       "properties": {
         "id": 24,
-        "name": "LaRina Pastificio & Vino",
+        "name": "LaRina Pastificio \u0026 Vino",
         "logline": "Lively, tasty spot for Italian fare and homemade pasta.",
         "address": "387 Myrtle Ave",
         "city": "Brooklyn",
@@ -674,6 +674,84 @@
       "geometry": {
         "type": "Point",
         "coordinates": [-73.98870352106597, 40.729177984612186]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 27,
+        "name": "HiroNori Craft Ramen",
+        "logline": "Cozy spot for delicious Michelin guide ramen.",
+        "address": "3803 Fifth Ave",
+        "city": "San Diego",
+        "state": "CA",
+        "country": "USA",
+        "zipCode": 92103,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 32.74719728884015,
+        "longitude": -117.16029632094646,
+        "rating": {
+          "portionSize": 4.45,
+          "ambience": 4.4,
+          "taste": 4.8
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.16029632094646, 32.74719728884015]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 28,
+        "name": "Bread and Cie",
+        "logline": "Roomy cafe with outdoor seating and a wide variety of baked goods and sandwiches.",
+        "address": "350 University Ave",
+        "city": "San Diego",
+        "state": "CA",
+        "country": "USA",
+        "zipCode": 92103,
+        "type": ["Cafe"],
+        "price": 1,
+        "latitude": 32.7483722014743,
+        "longitude": -117.16187309898942,
+        "rating": {
+          "portionSize": 4.6,
+          "ambience": 4.5,
+          "taste": 4.6
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.16187309898942, 32.7483722014743]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 29,
+        "name": "Monzu Fresh Pasta",
+        "logline": "Spot serving up fresh, organic pasta.",
+        "address": "455 Tenth Ave",
+        "city": "San Diego",
+        "state": "CA",
+        "country": "USA",
+        "zipCode": 92101,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 32.70993366598041,
+        "longitude": -117.15538692460642,
+        "rating": {
+          "portionSize": 4.5,
+          "ambience": 4.5,
+          "taste": 4.75
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.15538692460642, 32.70993366598041]
       }
     }
   ]
