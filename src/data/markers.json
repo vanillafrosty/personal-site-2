@@ -753,6 +753,344 @@
         "type": "Point",
         "coordinates": [-117.15538692460642, 32.70993366598041]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 30,
+        "name": "Gelato 101",
+        "logline": "Quality gelato spot with funky flavors and outdoor fireside seating.",
+        "address": "480 S Coast Hwy 101",
+        "city": "Encinitas",
+        "state": "CA",
+        "country": "USA",
+        "zipCode": 92024,
+        "type": ["Restaurant"],
+        "price": 1,
+        "latitude": 33.04616959131244,
+        "longitude": -117.29414906134181,
+        "rating": {
+          "portionSize": 4.3,
+          "ambience": 4.55,
+          "taste": 4.6
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.29414906134181, 33.04616959131244]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 31,
+        "name": "Hotel Caesar",
+        "logline": "Birthplace of the caesar salad! Hotel restaurant with good service.",
+        "address": "Av. Revolución 8190",
+        "city": "Zona Centro, 22000 Tijuana",
+        "state": "Baja California",
+        "country": "Mexico",
+        "zipCode": 0,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 32.53225133466489,
+        "longitude": -117.03679122944828,
+        "rating": {
+          "portionSize": 4.4,
+          "ambience": 4.5,
+          "taste": 4.5
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.03679122944828, 32.53225133466489]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 32,
+        "name": "Tacos de Birria \"El Sabroso\"",
+        "logline": "Street cart with birria tacos and drinks.",
+        "address": "Av Aguascalientes 2237",
+        "city": "Col. Madero (Cacho), 22040 Tijuana",
+        "state": "Baja California",
+        "country": "Mexico",
+        "zipCode": 0,
+        "type": ["Restaurant"],
+        "price": 1,
+        "latitude": 32.52164854925703,
+        "longitude": -117.03068099006094,
+        "rating": {
+          "portionSize": 4.4,
+          "ambience": 0,
+          "taste": 4.55
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.03068099006094, 32.52164854925703]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 33,
+        "name": "Mekong Restaurant",
+        "logline": "Homey spot for Laotion and Thai cuisine.",
+        "address": "3904 Convoy St #112",
+        "city": "San Diego",
+        "state": "CA",
+        "country": "USA",
+        "zipCode": 92111,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 32.81462324324509,
+        "longitude": -117.154785981347,
+        "rating": {
+          "portionSize": 4.55,
+          "ambience": 4.4,
+          "taste": 4.5
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.154785981347, 32.81462324324509]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 34,
+        "name": "The Besta Wan Pizza House",
+        "logline": "Lively bar/restaurant known for pizza by the pie.",
+        "address": "148 Aberdeen Dr, Cardiff, CA 92007",
+        "city": "Cardiff",
+        "state": "CA",
+        "country": "USA",
+        "zipCode": 92007,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 33.02084590772602,
+        "longitude": -117.28123675311843,
+        "rating": {
+          "portionSize": 4.55,
+          "ambience": 4.65,
+          "taste": 4.25
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.28123675311843, 33.02084590772602]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 35,
+        "name": "La Mexicana Mercado Hidalgo",
+        "logline": "Huge marketplace for groceries and hot/dry/preserved food.",
+        "address": "Guadalupe Victoria 2",
+        "city": "Zona Urbana Rio Locales 58,59,20 y 36, 22010 Tijuana",
+        "state": "Baja California",
+        "country": "Mexico",
+        "zipCode": 0,
+        "type": ["Marketplace"],
+        "price": 1,
+        "latitude": 32.52771228254725,
+        "longitude": -117.02480176264541,
+        "rating": {
+          "portionSize": 4.7,
+          "ambience": 4.4,
+          "taste": 4.5
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.02480176264541, 32.52771228254725]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 36,
+        "name": "Foodgarden",
+        "logline": "Indoor food court with wide variety of cuisines, including Asian food.",
+        "address": "P.º de los Héroes 96-98",
+        "city": "Zona Urbana Rio Tijuana, 22010 Tijuana",
+        "state": "Baja California",
+        "country": "Mexico",
+        "zipCode": 0,
+        "type": ["Restaurant"],
+        "price": 1,
+        "latitude": 32.52658324054363,
+        "longitude": -117.01783236216185,
+        "rating": {
+          "portionSize": 4.4,
+          "ambience": 4.35,
+          "taste": 4.6
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.01783236216185, 32.52658324054363]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 37,
+        "name": "Spicy Moon",
+        "logline": "Plant based Szechuan cuisine in a small, cozy setting.",
+        "address": "328 E 6th St",
+        "city": "New York",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 10003,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 40.72674000205827,
+        "longitude": -73.98721157325774,
+        "rating": {
+          "portionSize": 4.65,
+          "ambience": 4.55,
+          "taste": 4.6
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.98721157325774, 40.72674000205827]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 38,
+        "name": "Brooklyn Brewery",
+        "logline": "Microbrewery with large seating area and old school arcade games.",
+        "address": "79 N 11th St",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 11249,
+        "type": ["Bar"],
+        "price": 2,
+        "latitude": 40.721762300536824,
+        "longitude": -73.95770734370755,
+        "rating": {
+          "portionSize": 4.4,
+          "ambience": 4.75,
+          "taste": 4.4
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.95770734370755, 40.721762300536824]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 39,
+        "name": "Greenpoint Terminal Market",
+        "logline": "Outdoor marketplace open weekends with a variety of vendors, and special events on occasion.",
+        "address": "2 Noble St",
+        "city": "Brooklyn",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 11222,
+        "type": ["Marketplace"],
+        "price": 2,
+        "latitude": 40.728086641814485,
+        "longitude": -73.96070667570746,
+        "rating": {
+          "portionSize": 4.1,
+          "ambience": 4.3,
+          "taste": 4.65
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.96070667570746, 40.728086641814485]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 40,
+        "name": "Krush",
+        "logline": "Small K-town spot with beer pong tables and bar food.",
+        "address": "2 W 32nd St 4th floor",
+        "city": "New York",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 10001,
+        "type": ["Bar"],
+        "price": 2,
+        "latitude": 40.7472222499806,
+        "longitude": -73.98617417388482,
+        "rating": {
+          "portionSize": 4,
+          "ambience": 4.6,
+          "taste": 4
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.98617417388482, 40.7472222499806]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 41,
+        "name": "Bangia",
+        "logline": "Lively basement spot with traditional Korean food and drinks.",
+        "address": "11 E 32nd St, New York, NY 10016",
+        "city": "New York",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 10016,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 40.74698902831247,
+        "longitude": -73.98445309467527,
+        "rating": {
+          "portionSize": 4.6,
+          "ambience": 4.65,
+          "taste": 4.6
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.98445309467527, 40.74698902831247]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 42,
+        "name": "Panadería El Globo",
+        "logline": "Bakery with a huge variety of baked goods and pastries.",
+        "address": "Av. Miguel Negrete 1017",
+        "city": "Zona Centro, 22000 Tijuana",
+        "state": "Baja California",
+        "country": "Mexico",
+        "zipCode": 0,
+        "type": ["Restaurant"],
+        "price": 1,
+        "latitude": 32.52680629891655,
+        "longitude": -117.03291038615974,
+        "rating": {
+          "portionSize": 4.6,
+          "ambience": 0,
+          "taste": 4.5
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.03291038615974, 32.52680629891655]
+      }
     }
   ]
 }
