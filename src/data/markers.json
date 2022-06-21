@@ -1091,6 +1091,32 @@
         "type": "Point",
         "coordinates": [-117.03291038615974, 32.52680629891655]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 43,
+        "name": "Kausa",
+        "logline": "Lively spot for ceviche, sangria, causa, and other Peruvian staples.",
+        "address": "745 9th Ave",
+        "city": "New York",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 10019,
+        "type": ["Restaurant"],
+        "price": 2,
+        "latitude": 40.763857571008536,
+        "longitude": -73.98909073645598,
+        "rating": {
+          "portionSize": 4.5,
+          "ambience": 4.7,
+          "taste": 4.65
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.98909073645598, 40.763857571008536]
+      }
     }
   ]
 }
