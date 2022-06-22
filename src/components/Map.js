@@ -12,6 +12,7 @@ import Supercluster from "supercluster";
 import iconMap from "../utils/iconMap";
 import { calcRating } from "../utils/rating";
 import isEqual from "lodash/isEqual";
+import FilterButton from "./FilterButton";
 import "../stylesheets/supercluster.scss";
 import "../stylesheets/map.scss";
 
@@ -118,10 +119,10 @@ const Map = ({ onMarkerClick }) => {
       (currentMarker?.geometry && (
         <div
           onClick={recenter}
-          className="marker-floater bg-zinc-50 drop-shadow-md rounded-md"
-          title="Snap to current marker"
+          className="marker-floater floater-recenter bg-zinc-50 drop-shadow-md rounded-md"
+          title="Snap to last opened marker"
         >
-          <i className="fa-solid fa-location-dot px-2 py-4"></i>
+          <i className="fa-solid fa-location-dot"></i>
         </div>
       )) ||
       null
@@ -215,27 +216,30 @@ const Map = ({ onMarkerClick }) => {
   }
 
   return (
-    <MapContainer
-      className="z-10 h-screen"
-      center={[32.76301228860241, -117.13063799019834]}
-      zoom={12}
-      scrollWheelZoom={true}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      />
-      <SetInitialBounds
-        updateBounds={(boundsArr) => {
-          if (bounds.length === 0) {
-            setBounds(boundsArr);
-          }
-        }}
-      />
-      <RecenterButton currentMarker={currentMarker} />
-      <MyComponent />
-      <Markers markers={markers} />
-    </MapContainer>
+    <>
+      <MapContainer
+        className="z-10 h-screen"
+        center={[32.76301228860241, -117.13063799019834]}
+        zoom={12}
+        scrollWheelZoom={true}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <SetInitialBounds
+          updateBounds={(boundsArr) => {
+            if (bounds.length === 0) {
+              setBounds(boundsArr);
+            }
+          }}
+        />
+        <RecenterButton currentMarker={currentMarker} />
+        <MyComponent />
+        <Markers markers={markers} />
+      </MapContainer>
+      <FilterButton />
+    </>
   );
 };
 

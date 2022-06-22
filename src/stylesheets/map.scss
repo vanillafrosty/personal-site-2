@@ -1,11 +1,22 @@
 .marker-floater {
   position: fixed;
   display: flex;
-  top: 5rem;
-  left: 0.75rem;
   z-index: 999;
-  color: rgba(0, 170, 213, 1);
   cursor: pointer;
+}
+
+.can-click {
+  cursor: pointer;
+}
+
+.floater-recenter {
+  color: rgba(0, 170, 213, 1);
+  top: 7.5rem;
+  left: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   .fa-solid {
     font-size: 1.5em;
     line-height: 0.05em;
@@ -13,8 +24,34 @@
   }
 }
 
+.floater-filters {
+  width: 1.875rem;
+  height: 0.175rem;
+  top: 5rem;
+  left: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  transition: width 0.2s ease, height 0.25s ease;
+  &.filters-active {
+    width: 28rem;
+    height: 14rem;
+    cursor: default;
+  }
+  .fa-solid {
+    font-size: 1.1em;
+    line-height: 0.05em;
+    vertical-align: -0.075em;
+  }
+}
+
 .leaflet-tooltip-pane {
   // z-index: 575;
+}
+
+.leaflet-marker-pane {
+  z-index: 675;
 }
 
 .leaflet-tooltip {
@@ -39,5 +76,94 @@
   [data-star] {
     font-size: 0.6rem;
     place-self: center;
+  }
+}
+
+.no-width {
+  width: 0;
+}
+
+.filters-container {
+  margin: 1rem auto;
+}
+
+.venue-filters {
+  display: flex;
+  font-size: 0.875rem;
+  transform: scale(0);
+  &.venue-filters-active {
+    animation: scaleOut 0.3s forwards;
+  }
+  div {
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-top: 1px solid rgb(148, 163, 184);
+    border-left: 1px solid rgb(148, 163, 184);
+    border-bottom: 1px solid rgb(148, 163, 184);
+    background-color: rgb(250, 250, 250);
+  }
+  div:last-child {
+    border-right: 1px solid rgb(148, 163, 184);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  div:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+}
+
+.price-filters {
+  display: flex;
+  width: 100%;
+  transform: scale(0);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  &.price-filters-active {
+    animation: scaleOut 0.3s forwards;
+  }
+  div {
+    flex-grow: 1;
+    text-align: center;
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+    padding-top: 0.65rem;
+    padding-bottom: 0.5rem;
+    border-top: 1px solid rgb(148, 163, 184);
+    border-left: 1px solid rgb(148, 163, 184);
+    border-bottom: 1px solid rgb(148, 163, 184);
+    background-color: rgb(250, 250, 250);
+    i {
+      place-self: center;
+    }
+  }
+  div:last-child {
+    border-right: 1px solid rgb(148, 163, 184);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  div:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+}
+
+.rating-filter {
+  transform: scale(0);
+  &.rating-filter-active {
+    animation: scaleOut 0.3s forwards;
+  }
+}
+
+@keyframes scaleOut {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
