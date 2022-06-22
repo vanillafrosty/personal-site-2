@@ -1,0 +1,134 @@
+$maroon: rgb(185 28 28);
+
+.filters-container {
+  margin: 1rem auto;
+  font-family: "Source Sans Pro";
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.floater-filters {
+  width: 1.875rem;
+  height: 0.175rem;
+  top: 5rem;
+  left: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  transition: width 0.2s ease, height 0.25s ease;
+  &.filters-active {
+    width: 30rem;
+    height: 16rem;
+    cursor: default;
+  }
+  .fa-solid {
+    font-size: 1.1em;
+    line-height: 0.05em;
+    vertical-align: -0.075em;
+  }
+}
+
+.venue-filters {
+  display: flex;
+  font-size: 1rem;
+  transform: scale(0);
+  &.venue-filters-active {
+    animation: scaleOut 0.3s forwards;
+  }
+  div {
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-top: 1px solid rgb(148, 163, 184);
+    border-left: 1px solid rgb(148, 163, 184);
+    border-bottom: 1px solid rgb(148, 163, 184);
+    background-color: rgb(250, 250, 250);
+    &.active-filter {
+      background-color: $maroon;
+      color: white;
+    }
+  }
+  div:last-child {
+    border-right: 1px solid rgb(148, 163, 184);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  div:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+}
+
+.price-filters {
+  display: flex;
+  width: 100%;
+  transform: scale(0);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  &.price-filters-active {
+    animation: scaleOut 0.3s forwards;
+  }
+  div {
+    flex-grow: 1;
+    text-align: center;
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-top: 1px solid rgb(148, 163, 184);
+    border-left: 1px solid rgb(148, 163, 184);
+    border-bottom: 1px solid rgb(148, 163, 184);
+    background-color: rgb(250, 250, 250);
+    &.active-filter {
+      background-color: $maroon;
+      color: white;
+    }
+    i {
+      place-self: center;
+    }
+  }
+  div:last-child {
+    border-right: 1px solid rgb(148, 163, 184);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  div:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+}
+
+.rating-filter {
+  font-size: 1rem;
+  transform: scale(0);
+  &.rating-filter-active {
+    animation: scaleOut 0.3s forwards;
+  }
+}
+
+@keyframes scaleOut {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.can-click {
+  cursor: pointer;
+}
+
+.no-width {
+  width: 0;
+}
+
+.slider {
+  height: 2px;
+  accent-color: $maroon;
+  width: 100%;
+}

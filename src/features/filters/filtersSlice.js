@@ -22,7 +22,7 @@ export const filtersSlice = createSlice({
       return state;
     },
     updatePrice: (state, action) => {
-      state.price[action.payload] = state.price[action.payload];
+      state.price[action.payload] = !state.price[action.payload];
       return state;
     },
     updateRating: (state, action) => {

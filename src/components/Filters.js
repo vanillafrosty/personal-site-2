@@ -1,8 +1,15 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updatePrice, updateVenue } from "../features/filters/filtersSlice";
 import cs from "classnames";
+import "../stylesheets/Filters.scss";
 
-const FilterButton = () => {
+const Filters = () => {
+  const venues = useSelector((state) => state.filters.venue);
+  const prices = useSelector((state) => state.filters.price);
+  const dispatch = useDispatch();
   const [active, setActive] = useState(false);
+  const [value, setValue] = useState(2.5);
 
   const activeHandler = (e) => {
     e.stopPropagation();
@@ -17,8 +24,8 @@ const FilterButton = () => {
     }
   };
 
-  const venues = ["Bars", "Restaurants", "Marketplaces", "Cafes"];
-  const prices = [1, 2, 3];
+  const venueOptions = ["Bars", "Restaurants", "Marketplaces", "Cafes"];
+  const priceOptions = [1, 2, 3];
   return (
     <div
       onClick={activeHandler}
@@ -41,15 +48,25 @@ const FilterButton = () => {
         <div
           className={cs("venue-filters", { "venue-filters-active": active })}
         >
-          {venues.map((el) => (
-            <div key={el}>{el}</div>
+          {venueOptions.map((el) => (
+            <div
+              key={el}
+              className={venues[el.toLowerCase()] ? "active-filter" : ""}
+              onClick={() => dispatch(updateVenue(el.toLowerCase()))}
+            >
+              {el}
+            </div>
           ))}
         </div>
         <div
           className={cs("price-filters", { "price-filters-active": active })}
         >
-          {prices.map((el) => (
-            <div key={el}>
+          {priceOptions.map((el) => (
+            <div
+              key={el}
+              className={prices[el] ? "active-filter" : ""}
+              onClick={() => dispatch(updatePrice(el))}
+            >
               {[...Array(el)].map((e, index) => (
                 <i key={index} className="fa-solid fa-dollar-sign"></i>
               ))}
@@ -59,11 +76,20 @@ const FilterButton = () => {
         <div
           className={cs("rating-filter", { "rating-filter-active": active })}
         >
-          <input type="range" min="1" max="50" defaultValue="25"></input>
+          <div>Rating: {value} +</div>
+          <input
+            className="slider"
+            type="range"
+            min="0"
+            max="5"
+            step="0.1"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          ></input>
         </div>
       </div>
     </div>
   );
 };
 
-export default FilterButton;
+export default Filters;

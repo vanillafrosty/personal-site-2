@@ -12,7 +12,7 @@ import Supercluster from "supercluster";
 import iconMap from "../utils/iconMap";
 import { calcRating } from "../utils/rating";
 import isEqual from "lodash/isEqual";
-import FilterButton from "./FilterButton";
+import Filters from "./Filters";
 import "../stylesheets/supercluster.scss";
 import "../stylesheets/map.scss";
 
@@ -238,7 +238,7 @@ const Map = ({ onMarkerClick }) => {
         <MyComponent />
         <Markers markers={markers} />
       </MapContainer>
-      <FilterButton />
+      <Filters />
     </>
   );
 };
