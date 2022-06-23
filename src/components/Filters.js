@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updatePrice, updateVenue } from "../features/filters/filtersSlice";
+import {
+  updatePrice,
+  updateVenue,
+  updateRating,
+} from "../features/filters/filtersSlice";
 import cs from "classnames";
 import "../stylesheets/Filters.scss";
 
 const Filters = () => {
   const venues = useSelector((state) => state.filters.venue);
   const prices = useSelector((state) => state.filters.price);
+  const rating = useSelector((state) => state.filters.rating);
   const dispatch = useDispatch();
   const [active, setActive] = useState(false);
-  const [value, setValue] = useState(2.5);
 
   const activeHandler = (e) => {
     e.stopPropagation();
@@ -76,15 +80,15 @@ const Filters = () => {
         <div
           className={cs("rating-filter", { "rating-filter-active": active })}
         >
-          <div>Rating: {value} +</div>
+          <div>Rating: {rating} +</div>
           <input
             className="slider"
             type="range"
             min="0"
             max="5"
             step="0.1"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
+            value={rating}
+            onChange={(e) => dispatch(updateRating(e.target.value))}
           ></input>
         </div>
       </div>

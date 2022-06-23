@@ -4,17 +4,17 @@ export const filtersSlice = createSlice({
   name: "filters",
   initialState: {
     venue: {
-      bar: false,
-      restaurant: false,
-      marketplace: false,
-      cafe: false,
+      bars: false,
+      restaurants: false,
+      marketplaces: false,
+      cafes: false,
     },
     price: {
       1: false,
       2: false,
       3: false,
     },
-    rating: 0,
+    rating: 3,
   },
   reducers: {
     updateVenue: (state, action) => {

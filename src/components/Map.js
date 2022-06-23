@@ -8,9 +8,11 @@ import {
   useMap,
   useMapEvents,
 } from "react-leaflet";
+import { connect } from "react-redux";
 import Supercluster from "supercluster";
 import iconMap from "../utils/iconMap";
 import { calcRating } from "../utils/rating";
+import { usePrevious } from "./helper/usePrev";
 import isEqual from "lodash/isEqual";
 import Filters from "./Filters";
 import "../stylesheets/supercluster.scss";
@@ -59,25 +61,101 @@ const clusterIcon = (count) => {
   return icons[count];
 };
 
-const Map = ({ onMarkerClick }) => {
-  const [currentMarker, setCurrentMarker] = useState({});
+const noFilters = (obj) => {
+  for (let key in obj) {
+    if (obj[key]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const filterMarkers = (markers, venues, prices, rating) => {
+  const out = [];
+  for (let i = 0; i < markers.length; i++) {
+    const current = markers[i];
+    const properties = current.properties;
+    if (
+      (noFilters(venues) || venues[properties.type[0].toLowerCase() + "s"]) &&
+      (noFilters(prices) || prices[properties.price]) &&
+      properties.overallRating >= rating
+    ) {
+      out.push(current);
+    }
+  }
+  return out;
+};
+
+const updateRating = (markers) => {
+  for (let i = 0; i < markers.length; i++) {
+    markers[i].properties.overallRating = calcRating(
+      markers[i].properties.rating
+    );
+  }
+};
+
+const Map = ({ onMarkerClick, venueFilter, priceFilter, ratingFilter }) => {
   const [markers, setMarkers] = useState([]);
+  const [allMarkers, setAllMarkers] = useState([]);
+  const [currentMarker, setCurrentMarker] = useState({});
   const [index, setIndex] = useState(null);
   const [bounds, setBounds] = useState([]);
+  const [currentBounds, setCurrentBounds] = useState([]);
+  const [currentZoom, setCurrentZoom] = useState(12);
+  const [currentCenter, setCurrentCenter] = useState([
+    40.708508696464165, -73.97182314162123,
+  ]);
+
+  useEffect(() => {
+    if (allMarkers.length && currentBounds.length) {
+      console.log(venueFilter);
+      console.log(priceFilter);
+      console.log(ratingFilter);
+      const filteredMarkers = filterMarkers(
+        allMarkers,
+        venueFilter,
+        priceFilter,
+        ratingFilter
+      );
+
+      const index = new Supercluster({
+        log: true,
+        radius: 60,
+        extent: 256,
+        maxZoom: 17,
+      }).load(filteredMarkers);
+
+      const points = index.getClusters(currentBounds, currentZoom);
+
+      setIndex(index);
+      setMarkers(points);
+    }
+  }, [venueFilter, priceFilter, ratingFilter]);
 
   const loadData = async () => {
+    console.log("are we...here? (loadata)");
     const { markers } = await import("../data/markers.json");
+    updateRating(markers);
+    setAllMarkers(markers);
+    const filteredMarkers = filterMarkers(
+      markers,
+      venueFilter,
+      priceFilter,
+      ratingFilter
+    );
     const index = new Supercluster({
       log: true,
       radius: 60,
       extent: 256,
       maxZoom: 17,
-    }).load(markers);
+    }).load(filteredMarkers);
 
     // [westLng, southLat, eastLng, northLat]
     const initialBounds = bounds;
     const initialZoom = 12;
     const points = index.getClusters(initialBounds, initialZoom);
+    console.log(points);
+
     setIndex(index);
     setMarkers(points);
   };
@@ -88,12 +166,19 @@ const Map = ({ onMarkerClick }) => {
     }
   }, [bounds]);
 
-  function SetInitialBounds({ updateBounds }) {
+  function SetInitialBounds({ updateBounds, updateCurrentBounds }) {
     const map = useMap();
 
     useEffect(() => {
+      console.log("how about here (initial bounds)");
       const bounds = map.getBounds();
       updateBounds([
+        bounds.getWest() - 0.028,
+        bounds.getSouth() - 0.02,
+        bounds.getEast() + 0.028,
+        bounds.getNorth() + 0.02,
+      ]);
+      updateCurrentBounds([
         bounds.getWest() - 0.028,
         bounds.getSouth() - 0.02,
         bounds.getEast() + 0.028,
@@ -129,11 +214,13 @@ const Map = ({ onMarkerClick }) => {
     );
   }
 
-  function MyComponent() {
+  function MoveListener() {
     const map = useMapEvents({
       moveend: () => {
         if (index) {
           const bounds = map.getBounds();
+          //increase bounds below by scalar amount so that on very zoomed in maps,
+          //the markers are not redrawn when one or two restaurants get clipped off from slight movement
           const newPointers = index.getClusters(
             [
               bounds.getWest() - 0.028,
@@ -144,7 +231,18 @@ const Map = ({ onMarkerClick }) => {
             map.getZoom()
           );
           if (!isEqual(newPointers, markers)) {
+            console.log("are we here?");
             setMarkers(newPointers);
+            const center = map.getCenter();
+            setCurrentCenter([center.lat, center.long]);
+            const zoom = map.getZoom();
+            setCurrentZoom(zoom);
+            setCurrentBounds([
+              bounds.getWest() - 0.028,
+              bounds.getSouth() - 0.02,
+              bounds.getEast() + 0.028,
+              bounds.getNorth() + 0.02,
+            ]);
           }
         }
       },
@@ -219,8 +317,8 @@ const Map = ({ onMarkerClick }) => {
     <>
       <MapContainer
         className="z-10 h-screen"
-        center={[32.76301228860241, -117.13063799019834]}
-        zoom={12}
+        center={currentCenter}
+        zoom={currentZoom}
         scrollWheelZoom={true}
       >
         <TileLayer
@@ -233,9 +331,14 @@ const Map = ({ onMarkerClick }) => {
               setBounds(boundsArr);
             }
           }}
+          updateCurrentBounds={(boundsArr) => {
+            if (currentBounds.length === 0) {
+              setCurrentBounds(boundsArr);
+            }
+          }}
         />
         <RecenterButton currentMarker={currentMarker} />
-        <MyComponent />
+        <MoveListener />
         <Markers markers={markers} />
       </MapContainer>
       <Filters />
@@ -243,4 +346,13 @@ const Map = ({ onMarkerClick }) => {
   );
 };
 
-export default Map;
+const mapStateToProps = (state) => {
+  const { venue, price, rating } = state.filters;
+  return {
+    venueFilter: venue,
+    priceFilter: price,
+    ratingFilter: rating,
+  };
+};
+
+export default connect(mapStateToProps)(Map);

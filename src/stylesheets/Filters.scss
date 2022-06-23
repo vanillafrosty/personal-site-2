@@ -37,6 +37,7 @@ $maroon: rgb(185 28 28);
     animation: scaleOut 0.3s forwards;
   }
   div {
+    cursor: pointer;
     padding-left: 1.125rem;
     padding-right: 1.125rem;
     padding-top: 0.5rem;
@@ -71,6 +72,7 @@ $maroon: rgb(185 28 28);
     animation: scaleOut 0.3s forwards;
   }
   div {
+    cursor: pointer;
     flex-grow: 1;
     text-align: center;
     padding-left: 1.125rem;
@@ -131,4 +133,5 @@ $maroon: rgb(185 28 28);
   height: 2px;
   accent-color: $maroon;
   width: 100%;
+  cursor: pointer;
 }
