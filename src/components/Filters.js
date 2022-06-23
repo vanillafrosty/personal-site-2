@@ -52,7 +52,7 @@ const Filters = () => {
       <i
         onClick={inactiveHandler}
         className={cs("fa-solid fa-sliders", {
-          "no-width": active,
+          "no-width": true,
           "can-click": active,
         })}
       ></i>
