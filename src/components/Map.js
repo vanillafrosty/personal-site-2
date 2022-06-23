@@ -12,7 +12,6 @@ import { connect } from "react-redux";
 import Supercluster from "supercluster";
 import iconMap from "../utils/iconMap";
 import { calcRating } from "../utils/rating";
-import { usePrevious } from "./helper/usePrev";
 import isEqual from "lodash/isEqual";
 import Filters from "./Filters";
 import "../stylesheets/supercluster.scss";
@@ -108,9 +107,6 @@ const Map = ({ onMarkerClick, venueFilter, priceFilter, ratingFilter }) => {
 
   useEffect(() => {
     if (allMarkers.length && currentBounds.length) {
-      console.log(venueFilter);
-      console.log(priceFilter);
-      console.log(ratingFilter);
       const filteredMarkers = filterMarkers(
         allMarkers,
         venueFilter,
@@ -133,7 +129,6 @@ const Map = ({ onMarkerClick, venueFilter, priceFilter, ratingFilter }) => {
   }, [venueFilter, priceFilter, ratingFilter]);
 
   const loadData = async () => {
-    console.log("are we...here? (loadata)");
     const { markers } = await import("../data/markers.json");
     updateRating(markers);
     setAllMarkers(markers);
@@ -154,7 +149,6 @@ const Map = ({ onMarkerClick, venueFilter, priceFilter, ratingFilter }) => {
     const initialBounds = bounds;
     const initialZoom = 12;
     const points = index.getClusters(initialBounds, initialZoom);
-    console.log(points);
 
     setIndex(index);
     setMarkers(points);
@@ -170,7 +164,6 @@ const Map = ({ onMarkerClick, venueFilter, priceFilter, ratingFilter }) => {
     const map = useMap();
 
     useEffect(() => {
-      console.log("how about here (initial bounds)");
       const bounds = map.getBounds();
       updateBounds([
         bounds.getWest() - 0.028,
@@ -231,7 +224,6 @@ const Map = ({ onMarkerClick, venueFilter, priceFilter, ratingFilter }) => {
             map.getZoom()
           );
           if (!isEqual(newPointers, markers)) {
-            console.log("are we here?");
             setMarkers(newPointers);
             const center = map.getCenter();
             setCurrentCenter([center.lat, center.long]);

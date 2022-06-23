@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   updatePrice,
   updateVenue,
   updateRating,
 } from "../features/filters/filtersSlice";
+import useDebounce from "./helper/useDebounce";
 import cs from "classnames";
 import "../stylesheets/Filters.scss";
 
@@ -14,6 +15,13 @@ const Filters = () => {
   const rating = useSelector((state) => state.filters.rating);
   const dispatch = useDispatch();
   const [active, setActive] = useState(false);
+  const [localRating, setLocalRating] = useState(rating);
+
+  const debouncedRating = useDebounce(localRating, 400);
+
+  useEffect(() => {
+    dispatch(updateRating(debouncedRating));
+  }, [debouncedRating]);
 
   const activeHandler = (e) => {
     e.stopPropagation();
@@ -80,15 +88,15 @@ const Filters = () => {
         <div
           className={cs("rating-filter", { "rating-filter-active": active })}
         >
-          <div>Rating: {rating} +</div>
+          <div>Rating: {localRating} +</div>
           <input
             className="slider"
             type="range"
             min="0"
             max="5"
             step="0.1"
-            value={rating}
-            onChange={(e) => dispatch(updateRating(e.target.value))}
+            value={localRating}
+            onChange={(e) => setLocalRating(e.target.value)}
           ></input>
         </div>
       </div>
