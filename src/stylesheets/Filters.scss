@@ -1,10 +1,12 @@
 $maroon: rgb(185 28 28);
+$dark-gray: rgb(148, 163, 184);
 
 .filters-container {
   margin: 1rem auto;
   font-family: "Source Sans Pro";
   font-weight: 600;
   letter-spacing: 1px;
+  width: 90%;
 }
 
 .floater-filters {
@@ -18,8 +20,8 @@ $maroon: rgb(185 28 28);
   padding-right: 0.4rem;
   transition: width 0.2s ease, height 0.25s ease;
   &.filters-active {
-    width: 30rem;
-    height: 16rem;
+    width: 22rem;
+    height: 19rem;
     cursor: default;
   }
   .fa-solid {
@@ -29,36 +31,63 @@ $maroon: rgb(185 28 28);
   }
 }
 
+@media (min-width: 500px) {
+  .floater-filters {
+    &.filters-active {
+      width: 30rem;
+      height: 16rem;
+    }
+  }
+}
+
 .venue-filters {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 0.75rem;
+  column-gap: 0.75rem;
   font-size: 1rem;
   transform: scale(0);
   &.venue-filters-active {
     animation: scaleOut 0.3s forwards;
   }
+  width: 100%;
   div {
     cursor: pointer;
     padding-left: 1.125rem;
     padding-right: 1.125rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    border-top: 1px solid rgb(148, 163, 184);
-    border-left: 1px solid rgb(148, 163, 184);
-    border-bottom: 1px solid rgb(148, 163, 184);
+    border-right: 1px solid $dark-gray;
+    border-top: 1px solid $dark-gray;
+    border-left: 1px solid $dark-gray;
+    border-bottom: 1px solid $dark-gray;
+    border-radius: 3px;
     background-color: rgb(250, 250, 250);
     &.active-filter {
       background-color: $maroon;
       color: white;
     }
   }
-  div:last-child {
-    border-right: 1px solid rgb(148, 163, 184);
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-  }
-  div:first-child {
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+}
+
+@media (min-width: 500px) {
+  .venue-filters {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 0;
+    column-gap: 0;
+    div {
+      border-right: none;
+      border-radius: 0px;
+    }
+    div:last-child {
+      border-right: 1px solid $dark-gray;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+    div:first-child {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
   }
 }
 
@@ -79,9 +108,9 @@ $maroon: rgb(185 28 28);
     padding-right: 1.125rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    border-top: 1px solid rgb(148, 163, 184);
-    border-left: 1px solid rgb(148, 163, 184);
-    border-bottom: 1px solid rgb(148, 163, 184);
+    border-top: 1px solid $dark-gray;
+    border-left: 1px solid $dark-gray;
+    border-bottom: 1px solid $dark-gray;
     background-color: rgb(250, 250, 250);
     &.active-filter {
       background-color: $maroon;
@@ -92,7 +121,7 @@ $maroon: rgb(185 28 28);
     }
   }
   div:last-child {
-    border-right: 1px solid rgb(148, 163, 184);
+    border-right: 1px solid $dark-gray;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
   }
