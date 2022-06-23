@@ -1,11 +1,18 @@
 .marker-floater {
   position: fixed;
   display: flex;
-  top: 5rem;
-  left: 0.75rem;
   z-index: 999;
-  color: rgba(0, 170, 213, 1);
   cursor: pointer;
+}
+
+.floater-recenter {
+  color: rgba(0, 170, 213, 1);
+  top: 7.5rem;
+  left: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   .fa-solid {
     font-size: 1.5em;
     line-height: 0.05em;
@@ -15,6 +22,10 @@
 
 .leaflet-tooltip-pane {
   // z-index: 575;
+}
+
+.leaflet-marker-pane {
+  z-index: 675;
 }
 
 .leaflet-tooltip {
