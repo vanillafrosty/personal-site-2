@@ -37,7 +37,7 @@ const Filters = () => {
   };
 
   const venueOptions = ["Bars", "Restaurants", "Marketplaces", "Cafes"];
-  const priceOptions = [1, 2, 3];
+  const priceOptions = [1, 2, 3, 4];
   return (
     <div
       onClick={activeHandler}

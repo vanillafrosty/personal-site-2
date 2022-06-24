@@ -1214,6 +1214,33 @@
         "type": "Point",
         "coordinates": [-73.9342376092029, 40.74501122270147]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 46,
+        "name": "Indian-Accent",
+        "logline": "Modern, upscale spot for small to medium Indian plates.",
+        "description": "",
+        "address": "123 W 56th St",
+        "city": "New York",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 10019,
+        "type": ["Restaurant"],
+        "price": 4,
+        "latitude": 40.76428991976201,
+        "longitude": -73.97884483086169,
+        "rating": {
+          "portionSize": 4.3,
+          "ambience": 4.7,
+          "taste": 4.55
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.97884483086169, 40.76428991976201]
+      }
     }
   ]
 }
