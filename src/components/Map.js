@@ -75,7 +75,7 @@ const filterMarkers = (markers, venues, prices, rating) => {
     const current = markers[i];
     const properties = current.properties;
     if (
-      (noFilters(venues) || venues[properties.type[0].toLowerCase() + "s"]) &&
+      (noFilters(venues) || venues[properties.type.toLowerCase() + "s"]) &&
       (noFilters(prices) || prices[properties.price]) &&
       properties.overallRating >= rating
     ) {
@@ -269,7 +269,7 @@ const Map = ({ onMarkerClick, venueFilter, priceFilter, ratingFilter }) => {
         <Marker
           key={`marker-${marker.properties.id}`}
           position={[latitude, longitude]}
-          icon={iconMap[marker.properties.type[0]]}
+          icon={iconMap[marker.properties.type]}
           eventHandlers={{
             click: () => {
               onMarkerClick(marker);

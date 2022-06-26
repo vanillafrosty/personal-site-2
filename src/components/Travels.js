@@ -124,8 +124,8 @@ const TravelsPage = () => {
           </div>
         </div>
         <Carousel markerId={info.properties.id} openModal={openModal} />
-        <div className="description-container w-9/12 md:w-144 mt-12 mx-auto text-justify">
-          {info.properties.logline}
+        <div className="description-container w-9/12 md:w-144 mt-12 mb-12 mx-auto text-justify">
+          {info.properties.description || info.properties.logline}
         </div>
       </div>
     </div>
