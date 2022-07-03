@@ -18,6 +18,10 @@ const AboutPage = () => {
           On this site you can find reviews of places I've eaten at, mostly from
           2022 onward, when this site was created.
         </div>
+        <div className="mt-4 mb-4 font-bold">
+          PSA - if I rate a place a 4.5 overall or higher, you should pay it a
+          visit.
+        </div>
         <div className="mt-8 mb-4">
           I coded this site from scratch, and at the moment it's constantly
           updated and maintained. You can support me below with a donation to

@@ -5,6 +5,8 @@ import "../../stylesheets/Carousel.scss";
 
 const Carousel = ({ markerId, openModal }) => {
   const [allImages, setAllImages] = useState([]);
+  const [allImageDescriptions, setAllImageDescriptions] = useState([]);
+  const [imageDescriptions, setImageDescriptions] = useState([]);
   const [images, setImages] = useState([]);
   const [activeCard, setActiveCard] = useState(0);
 
@@ -13,12 +15,19 @@ const Carousel = ({ markerId, openModal }) => {
     setAllImages(images);
   };
 
+  const loadDescriptions = async () => {
+    const descriptions = await import("../../data/imageDescriptions.json");
+    setAllImageDescriptions(descriptions);
+  };
+
   useEffect(() => {
     loadData();
+    loadDescriptions();
   }, []);
 
   useEffect(() => {
     setImages(allImages[markerId - 1]);
+    setImageDescriptions(allImageDescriptions[markerId - 1]);
     setActiveCard(0);
   }, [markerId]);
 
@@ -73,6 +82,11 @@ const Carousel = ({ markerId, openModal }) => {
               isActive={i === activeCard}
               openModal={openModal}
             />
+            <div className="text-center italic mt-2">
+              {imageDescriptions.length && i === activeCard
+                ? imageDescriptions[i]
+                : null}
+            </div>
           </div>
         ))}
     </div>

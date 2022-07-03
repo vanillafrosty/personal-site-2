@@ -1206,8 +1206,8 @@
         "longitude": -73.9342376092029,
         "rating": {
           "portionSize": 4.3,
-          "ambience": 4.65,
-          "taste": 4.5
+          "ambience": 4.6,
+          "taste": 4.45
         }
       },
       "geometry": {
@@ -1232,14 +1232,68 @@
         "latitude": 40.76428991976201,
         "longitude": -73.97884483086169,
         "rating": {
-          "portionSize": 4.2,
-          "ambience": 4.7,
+          "portionSize": 4.1,
+          "ambience": 4.65,
           "taste": 4.55
         }
       },
       "geometry": {
         "type": "Point",
         "coordinates": [-73.97884483086169, 40.76428991976201]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 47,
+        "name": "Ad Hoc-Coffee",
+        "logline": "Cozy, small basement area serving coffee, pastries, and sandwiches.",
+        "description": "Cozy, small basement area serving coffee, pastries, and sandwiches. Free wifi (but no laptops allowed at the moment), small bathroom, and two tables outdoors. Wifi strength is pretty strong, but you get kicked off after an hour. Not sure if you can log back on after an hour.",
+        "address": "13 Christopher St",
+        "city": "New York",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 10014,
+        "type": "Cafe",
+        "price": 1,
+        "latitude": 40.73403598765086,
+        "longitude": -74.00046791014209,
+        "rating": {
+          "portionSize": 4.25,
+          "ambience": 4.45,
+          "taste": 4.45
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.00046791014209, 40.73403598765086]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 48,
+        "name": "Galanga",
+        "logline": "Decent spot for Thai cuisine.",
+        "description": "Kind of a decent spot for Thai cuisine. Not too expensive, but plates are kind of hit or miss quantity-wise. The pad thai was pretty small, but the fried chicken appetizer was pretty big. However the pad thai tasted better than the chicken, which almost had as much dry, fried skin than meat. Larb gai was good but a tiny bit too tangy. If I lived close by, I could see myself picking out a select few quality dishes and coming here once in a while. Service is pretty good.",
+        "address": "149 West 4th Street # 2",
+        "city": "New York",
+        "state": "NY",
+        "country": "USA",
+        "zipCode": 10012,
+        "type": "Restaurant",
+        "price": 2,
+        "latitude": 40.73159918075456,
+        "longitude": -74.00049348874785,
+        "rating": {
+          "portionSize": 4.3,
+          "ambience": 4.2,
+          "taste": 4.3
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.00049348874785, 40.73159918075456]
       }
     }
   ]
