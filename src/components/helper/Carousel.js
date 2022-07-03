@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import cs from "classnames";
 import LoadingImage from "./LoadingImage";
+import titleCase from "../../utils/titleCase";
 import "../../stylesheets/Carousel.scss";
 
-const Carousel = ({ markerId, openModal }) => {
+const Carousel = ({ markerId, openModal, setImageDescription }) => {
   const [allImages, setAllImages] = useState([]);
   const [allImageDescriptions, setAllImageDescriptions] = useState([]);
   const [imageDescriptions, setImageDescriptions] = useState([]);
@@ -30,6 +31,12 @@ const Carousel = ({ markerId, openModal }) => {
     setImageDescriptions(allImageDescriptions[markerId - 1]);
     setActiveCard(0);
   }, [markerId]);
+
+  useEffect(() => {
+    if (imageDescriptions?.length) {
+      setImageDescription(titleCase(imageDescriptions[activeCard]));
+    }
+  }, [imageDescriptions, activeCard]);
 
   const clickLeft = () => {
     if (images.length) {
@@ -68,25 +75,23 @@ const Carousel = ({ markerId, openModal }) => {
           <div
             key={el}
             onClick={() => setActiveCard(i)}
-            className={cs("carousel-card w-5/12 lg:w-35p xl:w-1/3 2xl:w-30p", {
-              "card-active": i === activeCard,
-              "card-inactive-left": (i + 1) % images.length === activeCard,
-              "card-inactive-right":
-                activeCard === images.length - 1
-                  ? i === 0
-                  : i - 1 === activeCard,
-            })}
+            className={cs(
+              "carousel-card w-7/12 sm:w-6/12 lg:w-5/12 xl:w-1/3 2xl:w-30p",
+              {
+                "card-active": i === activeCard,
+                "card-inactive-left": (i + 1) % images.length === activeCard,
+                "card-inactive-right":
+                  activeCard === images.length - 1
+                    ? i === 0
+                    : i - 1 === activeCard,
+              }
+            )}
           >
             <LoadingImage
               currentImage={el}
               isActive={i === activeCard}
               openModal={openModal}
             />
-            <div className="text-center italic mt-2">
-              {imageDescriptions.length && i === activeCard
-                ? imageDescriptions[i]
-                : null}
-            </div>
           </div>
         ))}
     </div>

@@ -30,10 +30,12 @@ const TravelsPage = () => {
   const [copied, setCopied] = useState(null);
   const [modal, setModal] = useState(false);
   const [modalImgPath, setModalImgPath] = useState("");
+  const [imageDescription, setImageDescription] = useState("");
 
   useEffect(() => {
     if (info.properties.id) {
       setAddress(makeAddress(info.properties));
+      setImageDescription("");
     }
   }, [info]);
 
@@ -123,8 +125,15 @@ const TravelsPage = () => {
             ))}
           </div>
         </div>
-        <Carousel markerId={info.properties.id} openModal={openModal} />
-        <div className="description-container w-9/12 md:w-144 mt-12 mb-12 mx-auto text-justify">
+        <Carousel
+          markerId={info.properties.id}
+          openModal={openModal}
+          setImageDescription={setImageDescription}
+        />
+        <div className="image-description text-center italic mt-2 mb-2 w-11/12 mx-auto">
+          {imageDescription}
+        </div>
+        <div className="description-container w-9/12 md:w-144 mt-8 mb-12 mx-auto text-justify">
           {info.properties.description || info.properties.logline}
         </div>
       </div>
